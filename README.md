@@ -60,7 +60,7 @@ MilkShop/
 
 1. Clone repo:
    ```bash
-   git clone https://github.com/............./milkshop-online.git
+   git clone https://github.com/Anpham120/milkshop-online.git
    ```
 2. Mở `index.html` bằng trình duyệt (hoặc dùng Live Server trong VS Code)
 3. Đăng nhập:
