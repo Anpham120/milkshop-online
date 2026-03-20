@@ -1,0 +1,28 @@
+# Thư mục tool generate docx
+md2docx/
+skills/
+
+# File báo cáo docx
+*.docx
+*.doc
+baocao.md
+
+# File tạm
+~$*
+*.tmp
+*.bak
+
+# Node
+node_modules/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+Thumbs.db
+.DS_Store
+
+# Plan
+PLAN.md
+AGENTS.md

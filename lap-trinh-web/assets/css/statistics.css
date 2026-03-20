@@ -1,0 +1,310 @@
+/* ====================================
+   STATISTICS.CSS — MilkShop Online
+   Premium Dashboard Design
+   ==================================== */
+
+/* ====================================
+   STAT CARDS — Gradient + Glass
+   ==================================== */
+.stat-card {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+}
+
+.stat-card-body {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 1.5rem;
+}
+
+.stat-card-left {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  opacity: 0.85;
+}
+
+.stat-value {
+  font-size: 2.5rem;
+  font-weight: 900;
+  line-height: 1.1;
+}
+
+.stat-sub {
+  font-size: 0.8rem;
+  opacity: 0.8;
+  display: flex;
+  align-items: center;
+}
+
+.stat-sub-up { color: #ecfdf5; }
+.stat-sub-down { color: #fff1f2; }
+
+.stat-card-icon-wrap {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  background: rgba(255, 255, 255, 0.2);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+
+.stat-card-footer {
+  padding: 10px 1.5rem;
+  font-size: 0.8rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  opacity: 0.8;
+}
+
+/* Bi\u1ebfn th\u1ec3 m\u00e0u th\u1ebb */
+.stat-card-primary {
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+  color: #fff;
+}
+
+.stat-card-success {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  color: #fff;
+}
+
+.stat-card-danger {
+  background: linear-gradient(135deg, #f43f5e 0%, #dc2626 100%);
+  color: #fff;
+}
+
+.stat-card-amber {
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+  color: #fff;
+}
+
+/* ====================================
+   CHART CARDS
+   ==================================== */
+.chart-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.chart-card:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.chart-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.chart-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 2px;
+}
+
+.chart-subtitle {
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  margin-bottom: 0;
+}
+
+.chart-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 12px;
+  border-radius: 50px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: rgba(37, 99, 235, 0.1);
+  color: #3b82f6;
+  white-space: nowrap;
+}
+
+.chart-badge-green { background: rgba(16, 185, 129, 0.1); color: #10b981; }
+.chart-badge-purple { background: rgba(139, 92, 246, 0.1); color: #8b5cf6; }
+.chart-badge-red { background: rgba(239, 68, 68, 0.1); color: #ef4444; }
+
+.chart-body {
+  padding: 1.25rem 1.5rem;
+}
+
+.chart-body-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ====================================
+   DEADLINE LIST
+   ==================================== */
+.deadline-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  max-height: 320px;
+  overflow-y: auto;
+}
+
+.deadline-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  transition: all 0.2s ease;
+}
+
+.deadline-item:hover {
+  box-shadow: var(--shadow-sm);
+}
+
+.deadline-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.deadline-dot-danger { background: #ef4444; }
+.deadline-dot-warning { background: #f59e0b; }
+.deadline-dot-success { background: #10b981; }
+
+.deadline-item-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.deadline-item-name {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.deadline-item-category {
+  font-size: 0.78rem;
+  color: var(--text-secondary);
+}
+
+.deadline-item-date {
+  font-size: 0.82rem;
+  font-weight: 600;
+  white-space: nowrap;
+  padding: 4px 10px;
+  border-radius: 50px;
+}
+
+.deadline-date-danger { background: #fef2f2; color: #dc2626; }
+.deadline-date-warning { background: #fffbeb; color: #d97706; }
+.deadline-date-success { background: #f0fdf4; color: #16a34a; }
+
+[data-theme="dark"] .deadline-date-danger { background: rgba(220,38,38,0.15); }
+[data-theme="dark"] .deadline-date-warning { background: rgba(217,119,6,0.15); }
+[data-theme="dark"] .deadline-date-success { background: rgba(22,163,74,0.15); }
+
+.deadline-empty {
+  text-align: center;
+  padding: 2rem;
+  color: var(--text-secondary);
+}
+
+.deadline-empty i {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  display: block;
+  opacity: 0.4;
+}
+
+/* ====================================
+   DATA MANAGEMENT ACTIONS
+   ==================================== */
+.data-actions {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  padding: 1.25rem 1.5rem;
+}
+
+.data-action-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.25rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  background: var(--bg);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.data-action-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.data-action-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+.data-action-blue { background: rgba(37, 99, 235, 0.1); color: #3b82f6; }
+.data-action-green { background: rgba(16, 185, 129, 0.1); color: #10b981; }
+.data-action-red { background: rgba(239, 68, 68, 0.1); color: #ef4444; }
+
+.data-action-info h6 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 2px;
+  color: var(--text-primary);
+}
+
+.data-action-info p {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin-bottom: 0;
+}
+
+/* ====================================
+   RESPONSIVE
+   ==================================== */
+@media (max-width: 768px) {
+  .stat-value { font-size: 2rem; }
+  .chart-card-header { flex-direction: column; gap: 8px; }
+  .data-actions { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 576px) {
+  .stat-card-body { padding: 1rem; }
+  .stat-card-icon-wrap { width: 44px; height: 44px; font-size: 1.1rem; }
+}

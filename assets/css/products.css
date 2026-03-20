@@ -1,0 +1,163 @@
+/* ====================================
+   PRODUCTS.CSS — MilkShop Online
+   ==================================== */
+
+/* Thanh công cụ */
+.toolbar-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  padding: 24px;
+  margin-bottom: 24px;
+  box-shadow: var(--shadow-sm);
+}
+
+.search-icon {
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+  pointer-events: none;
+}
+
+/* Thẻ sản phẩm */
+.product-card {
+  height: 100%;
+}
+
+.product-card .card-milkshop {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-card .card-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.product-card .card-actions {
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: 1px solid var(--border-color);
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.product-card .card-actions .btn {
+  font-size: 0.8rem;
+  padding: 5px 10px;
+  border-radius: 6px;
+}
+
+.product-card .product-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.product-card .product-deadline {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.product-card .product-deadline i {
+  margin-right: 4px;
+}
+
+.product-card .product-deadline.expired {
+  color: var(--danger);
+  font-weight: 600;
+}
+
+/* Chế độ xem danh sách */
+.list-view .product-card {
+  margin-bottom: 0;
+}
+
+.list-view .card-milkshop {
+  flex-direction: row;
+  align-items: center;
+}
+
+.list-view .img-wrapper {
+  width: 120px;
+  min-width: 120px;
+  height: 100%;
+  border-radius: var(--border-radius) 0 0 var(--border-radius);
+}
+
+.list-view .card-img-top {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: var(--border-radius) 0 0 var(--border-radius);
+}
+
+.list-view .card-body {
+  padding: 16px;
+}
+
+/* Nút đổi trạng thái */
+.btn-toggle-status {
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.btn-toggle-status:hover {
+  opacity: 0.8;
+}
+
+/* Gợi ý kéo thả */
+.drag-hint {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+/* Trạng thái đang kéo */
+.product-card.dragging {
+  opacity: 0.5;
+  transform: rotate(2deg);
+}
+
+.product-card.drag-over {
+  border: 2px dashed var(--primary);
+  border-radius: var(--border-radius);
+}
+
+/* Nút chuyển chế độ xem đang chọn */
+.btn-group .btn.active {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+}
+
+/* Sửa chế độ tối cho form select */
+[data-theme="dark"] .form-select {
+  background-color: var(--bg-input);
+  color: var(--text-primary);
+  border-color: var(--border-color);
+}
+
+/* Giao diện đáp ứng */
+@media (max-width: 767.98px) {
+  .toolbar-card {
+    padding: 16px;
+  }
+
+  .list-view .card-milkshop {
+    flex-direction: column;
+  }
+
+  .list-view .img-wrapper,
+  .list-view .card-img-top {
+    width: 100%;
+    height: 160px;
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+  }
+}

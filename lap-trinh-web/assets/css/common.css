@@ -1,0 +1,887 @@
+/* ====================================
+   COMMON.CSS — MilkShop Online
+   Reset, Variables, Navbar, Footer,
+   Responsive, Dark Mode, Utilities
+   ==================================== */
+
+/* --- Biến CSS --- */
+:root {
+  /* Bảng màu chính */
+  --primary: #2563eb;
+  --primary-light: #3b82f6;
+  --primary-dark: #1d4ed8;
+  --primary-rgb: 37, 99, 235;
+
+  /* Màu nhấn */
+  --accent: #f59e0b;
+  --accent-light: #fbbf24;
+  --accent-dark: #d97706;
+
+  /* Thành công / Nguy hiểm */
+  --success: #10b981;
+  --success-light: #34d399;
+  --danger: #ef4444;
+  --danger-light: #f87171;
+
+  /* Màu trung tính */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8fafc;
+  --bg-card: #ffffff;
+  --bg-navbar: rgba(255, 255, 255, 0.95);
+  --bg-footer: #0f172a;
+  --bg-modal: #ffffff;
+  --bg-input: #ffffff;
+
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #94a3b8;
+  --text-inverse: #f8fafc;
+
+  --border-color: #e2e8f0;
+  --border-radius: 12px;
+  --border-radius-sm: 8px;
+  --border-radius-lg: 16px;
+
+  /* Bóng đổ */
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
+  --shadow-lg: 0 8px 30px rgba(0,0,0,0.12);
+  --shadow-xl: 0 20px 60px rgba(0,0,0,0.15);
+
+  /* Phông chữ */
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+  /* Hiệu ứng chuyển tiếp */
+  --transition-fast: 0.15s ease;
+  --transition-base: 0.3s ease;
+  --transition-slow: 0.5s ease;
+
+  /* Thanh điều hướng */
+  --navbar-height: 72px;
+}
+
+/* --- Biến chế độ tối --- */
+[data-theme="dark"] {
+  --bg-primary: #0f172a;
+  --bg-secondary: #1e293b;
+  --bg-card: #1e293b;
+  --bg-navbar: rgba(15, 23, 42, 0.95);
+  --bg-footer: #020617;
+  --bg-modal: #1e293b;
+  --bg-input: #334155;
+
+  --text-primary: #f1f5f9;
+  --text-secondary: #cbd5e1;
+  --text-muted: #64748b;
+
+  --border-color: #334155;
+
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.3);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.4);
+  --shadow-lg: 0 8px 30px rgba(0,0,0,0.5);
+  --shadow-xl: 0 20px 60px rgba(0,0,0,0.6);
+}
+
+/* --- Reset & Cơ bản --- */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  transition: background-color var(--transition-base), color var(--transition-base);
+  padding-top: var(--navbar-height);
+}
+
+main {
+  flex: 1;
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--primary-dark);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* --- Tuỳ chỉnh thanh cuộn --- */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--text-muted);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
+}
+
+/* ====================================
+   NAVBAR
+   ==================================== */
+.navbar-milkshop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1030;
+  background: var(--bg-navbar);
+  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border-color);
+  min-height: var(--navbar-height);
+  transition: all var(--transition-base);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Menu mở rộng trên mobile */
+@media (max-width: 991.98px) {
+  .navbar-milkshop .navbar-collapse {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-lg);
+    padding: 16px;
+    margin-top: 8px;
+    max-height: 80vh;
+    overflow-y: auto;
+  }
+
+  .navbar-milkshop .navbar-collapse .nav-link {
+    padding: 10px 16px;
+    border-radius: var(--border-radius-sm);
+    margin-bottom: 2px;
+  }
+
+  .navbar-milkshop .navbar-collapse .nav-link:hover {
+    background: rgba(37, 99, 235, 0.08);
+  }
+
+  .navbar-milkshop .navbar-toggler {
+    border: 2px solid var(--border-color);
+    padding: 4px 8px;
+    border-radius: var(--border-radius-sm);
+  }
+
+  .navbar-milkshop .navbar-toggler:focus {
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+  }
+}
+
+.navbar-milkshop .navbar-brand {
+  font-weight: 800;
+  font-size: 1.5rem;
+  color: var(--primary);
+  letter-spacing: -0.5px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.navbar-milkshop .navbar-brand span {
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.navbar-milkshop .nav-link {
+  color: var(--text-secondary);
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: var(--border-radius-sm);
+  transition: all var(--transition-fast);
+  position: relative;
+  font-size: 0.95rem;
+}
+
+.navbar-milkshop .nav-link:hover,
+.navbar-milkshop .nav-link.active {
+  color: var(--primary);
+  background: rgba(var(--primary-rgb), 0.08);
+}
+
+.navbar-milkshop .nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 24px;
+  height: 3px;
+  background: var(--primary);
+  border-radius: 3px;
+}
+
+/* Nút chuyển chế độ tối */
+.btn-dark-mode {
+  background: none;
+  border: 2px solid var(--border-color);
+  color: var(--text-secondary);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  font-size: 1.1rem;
+}
+
+.btn-dark-mode:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+  transform: rotate(30deg);
+}
+
+/* Huy hiệu giỏ hàng */
+.cart-badge {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  background: var(--danger);
+  color: #fff;
+  font-size: 0.65rem;
+  font-weight: 700;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--bg-navbar);
+}
+
+/* ====================================
+   FOOTER
+   ==================================== */
+.footer-milkshop {
+  background: var(--bg-footer);
+  color: var(--text-inverse);
+  padding: 48px 0 24px;
+  margin-top: auto;
+}
+
+.footer-milkshop h5 {
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: #fff;
+}
+
+.footer-milkshop p,
+.footer-milkshop a {
+  color: #94a3b8;
+  font-size: 0.9rem;
+}
+
+.footer-milkshop a:hover {
+  color: #fff;
+}
+
+.footer-milkshop .footer-bottom {
+  border-top: 1px solid #1e293b;
+  padding-top: 20px;
+  margin-top: 32px;
+  text-align: center;
+  color: #64748b;
+  font-size: 0.85rem;
+}
+
+/* ====================================
+   CARDS
+   ==================================== */
+.card-milkshop {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  transition: all var(--transition-base);
+  box-shadow: var(--shadow-sm);
+}
+
+.card-milkshop:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.card-milkshop .card-img-top {
+  height: 200px;
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.card-milkshop:hover .card-img-top {
+  transform: scale(1.05);
+}
+
+.card-milkshop .card-body {
+  padding: 20px;
+}
+
+.card-milkshop .card-title {
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.card-milkshop .card-text {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+/* ====================================
+   BUTTONS
+   ==================================== */
+.btn-primary-milkshop {
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  border: none;
+  color: #fff;
+  font-weight: 600;
+  padding: 10px 24px;
+  border-radius: var(--border-radius-sm);
+  transition: all var(--transition-fast);
+  box-shadow: 0 2px 8px rgba(var(--primary-rgb), 0.3);
+}
+
+.btn-primary-milkshop:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(var(--primary-rgb), 0.4);
+  background: linear-gradient(135deg, var(--primary-light), var(--primary));
+  color: #fff;
+}
+
+.btn-outline-milkshop {
+  background: transparent;
+  border: 2px solid var(--primary);
+  color: var(--primary);
+  font-weight: 600;
+  padding: 8px 22px;
+  border-radius: var(--border-radius-sm);
+  transition: all var(--transition-fast);
+}
+
+.btn-outline-milkshop:hover {
+  background: var(--primary);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.btn-danger-milkshop {
+  background: linear-gradient(135deg, var(--danger), #dc2626);
+  border: none;
+  color: #fff;
+  font-weight: 600;
+  padding: 8px 20px;
+  border-radius: var(--border-radius-sm);
+  transition: all var(--transition-fast);
+}
+
+.btn-danger-milkshop:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(239, 68, 68, 0.4);
+}
+
+.btn-success-milkshop {
+  background: linear-gradient(135deg, var(--success), #059669);
+  border: none;
+  color: #fff;
+  font-weight: 600;
+  padding: 8px 20px;
+  border-radius: var(--border-radius-sm);
+  transition: all var(--transition-fast);
+}
+
+.btn-success-milkshop:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(16, 185, 129, 0.4);
+}
+
+/* ====================================
+   BI\u1ec2U M\u1eaAU
+   ==================================== */
+.form-control-milkshop {
+  display: block;
+  width: 100%;
+  background: var(--bg-input);
+  border: 2px solid var(--border-color);
+  border-radius: var(--border-radius-sm);
+  color: var(--text-primary);
+  padding: 10px 16px;
+  font-size: 0.95rem;
+  transition: all var(--transition-fast);
+}
+
+.form-control-milkshop:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+  outline: none;
+  background: var(--bg-input);
+  color: var(--text-primary);
+}
+
+.form-control-milkshop::placeholder {
+  color: var(--text-muted);
+}
+
+.form-label-milkshop {
+  display: block;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+
+.invalid-feedback-milkshop {
+  color: var(--danger);
+  font-size: 0.8rem;
+  margin-top: 4px;
+  display: none;
+}
+
+.form-control-milkshop.is-invalid {
+  border-color: var(--danger);
+}
+
+.form-control-milkshop.is-invalid ~ .invalid-feedback-milkshop {
+  display: block;
+}
+
+/* ====================================
+   MODAL S\u1ea2N PH\u1ea8M
+   ==================================== */
+.modal-backdrop {
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+}
+
+.modal-content {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-xl);
+  overflow: hidden;
+}
+
+.modal-header {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  color: #fff;
+  border-bottom: none;
+  padding: 20px 24px;
+}
+
+.modal-header .modal-title {
+  font-weight: 700;
+  font-size: 1.15rem;
+}
+
+.modal-header .btn-close {
+  filter: brightness(0) invert(1);
+  opacity: 0.8;
+}
+
+.modal-header .btn-close:hover {
+  opacity: 1;
+}
+
+.modal-body {
+  padding: 24px;
+}
+
+.modal-body .row.g-3 > div {
+  margin-bottom: 4px;
+}
+
+.modal-footer {
+  border-top: 1px solid var(--border-color);
+  padding: 16px 24px;
+  background: var(--bg-secondary);
+}
+
+.modal-footer .btn-secondary {
+  background: var(--bg-card);
+  border: 2px solid var(--border-color);
+  color: var(--text-secondary);
+  border-radius: var(--border-radius-sm);
+  padding: 8px 20px;
+  font-weight: 500;
+}
+
+.modal-footer .btn-secondary:hover {
+  background: var(--bg-secondary);
+  border-color: var(--text-muted);
+}
+
+/* ====================================
+   BADGES
+   ==================================== */
+.badge-status {
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+}
+
+.badge-con-hang {
+  background: rgba(16, 185, 129, 0.12);
+  color: var(--success);
+}
+
+.badge-het-hang {
+  background: rgba(239, 68, 68, 0.12);
+  color: var(--danger);
+}
+
+.badge-category {
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.badge-sua-tuoi { background: rgba(37, 99, 235, 0.1); color: var(--primary); }
+.badge-sua-bot { background: rgba(245, 158, 11, 0.1); color: var(--accent-dark); }
+.badge-sua-chua { background: rgba(168, 85, 247, 0.1); color: #a855f7; }
+.badge-sua-hat { background: rgba(16, 185, 129, 0.1); color: var(--success); }
+
+/* ====================================
+   MODALS (Bootstrap override)
+   ==================================== */
+.modal-content {
+  background: var(--bg-modal);
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-xl);
+}
+
+.modal-header {
+  border-bottom: 1px solid var(--border-color);
+  padding: 20px 24px;
+}
+
+.modal-title {
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.modal-body {
+  padding: 24px;
+}
+
+.modal-footer {
+  border-top: 1px solid var(--border-color);
+  padding: 16px 24px;
+}
+
+/* ====================================
+   SECTION HEADER
+   ==================================== */
+.section-header {
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.section-header h2 {
+  font-weight: 800;
+  font-size: 2rem;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+}
+
+.section-header p {
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.section-divider {
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  border-radius: 4px;
+  margin: 16px auto;
+}
+
+/* ====================================
+   PRICE TAG
+   ==================================== */
+.price-tag {
+  font-weight: 800;
+  font-size: 1.2rem;
+  color: var(--danger);
+}
+
+.price-tag small {
+  font-weight: 500;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+/* ====================================
+   EMPTY STATE
+   ==================================== */
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.empty-state i {
+  font-size: 4rem;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+}
+
+.empty-state h4 {
+  color: var(--text-secondary);
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.empty-state p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+/* ====================================
+   LOADING SPINNER
+   ==================================== */
+.loading-spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px;
+}
+
+.loading-spinner::after {
+  content: '';
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--border-color);
+  border-top-color: var(--primary);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ====================================
+   ANIMATIONS
+   ==================================== */
+.fade-in {
+  animation: fadeIn 0.5s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.slide-up {
+  animation: slideUp 0.6s ease forwards;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.scale-in {
+  animation: scaleIn 0.3s ease forwards;
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* ====================================
+   PAGE HEADER
+   ==================================== */
+.page-header {
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: #fff;
+  padding: 48px 0;
+  margin-bottom: 40px;
+}
+
+.page-header h1 {
+  font-weight: 800;
+  font-size: 2.2rem;
+  margin-bottom: 8px;
+}
+
+.page-header p {
+  font-size: 1.05rem;
+  opacity: 0.85;
+}
+
+/* ====================================
+   RESPONSIVE
+   ==================================== */
+
+/* Máy tính bảng */
+@media (max-width: 991.98px) {
+  :root {
+    --navbar-height: 64px;
+  }
+
+  .section-header h2 {
+    font-size: 1.7rem;
+  }
+
+  .page-header {
+    padding: 36px 0;
+  }
+
+  .page-header h1 {
+    font-size: 1.8rem;
+  }
+}
+
+/* Điện thoại */
+@media (max-width: 767.98px) {
+  .section-header h2 {
+    font-size: 1.5rem;
+  }
+
+  .page-header {
+    padding: 28px 0;
+    margin-bottom: 24px;
+  }
+
+  .page-header h1 {
+    font-size: 1.5rem;
+  }
+
+  .card-milkshop .card-img-top {
+    height: 160px;
+  }
+
+  .navbar-milkshop .navbar-brand {
+    font-size: 1.3rem;
+  }
+}
+
+/* Điện thoại nhỏ */
+@media (max-width: 575.98px) {
+  .container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .page-header h1 {
+    font-size: 1.3rem;
+  }
+}
+
+/* ====================================
+   UTILITY CLASSES
+   ==================================== */
+.text-gradient {
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.glass-effect {
+  background: rgba(255, 255, 255, 0.1);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+[data-theme="dark"] .glass-effect {
+  background: rgba(30, 41, 59, 0.6);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+/* Tuỳ chỉnh phân trang */
+.pagination .page-link {
+  color: var(--primary);
+  border: 1px solid var(--border-color);
+  background: var(--bg-card);
+  border-radius: var(--border-radius-sm);
+  margin: 0 2px;
+  font-weight: 500;
+  transition: all var(--transition-fast);
+}
+
+.pagination .page-link:hover {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+}
+
+.pagination .page-item.active .page-link {
+  background: var(--primary);
+  border-color: var(--primary);
+  color: #fff;
+}
+
+/* Tuỳ chỉnh Toast/SweetAlert2 cho chế độ tối */
+[data-theme="dark"] .swal2-popup {
+  background: var(--bg-card);
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .swal2-title {
+  color: var(--text-primary);
+}
+
+[data-theme="dark"] .swal2-html-container {
+  color: var(--text-secondary);
+}
+
+/* Ẩn tràn hình ảnh thẻ sản phẩm */
+.img-wrapper {
+  overflow: hidden;
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
+}
+
+/* Tiện ích: độ trễ hoạt ảnh */
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.3s; }
+.delay-4 { animation-delay: 0.4s; }
+
+/* Nhãn ghi nhớ đăng nhập */
+.login-remember-label {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}

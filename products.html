@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quản lý sản phẩm — MilkShop</title>
+  <meta name="description" content="Quản lý sản phẩm sữa - Thêm, sửa, xóa, tìm kiếm, lọc, sắp xếp sản phẩm">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="assets/css/common.css" rel="stylesheet">
+  <link href="assets/css/products.css" rel="stylesheet">
+</head>
+<body>
+
+  <div id="navbar-placeholder"></div>
+
+  <div class="page-header">
+    <div class="container">
+      <h1><i class="fas fa-box me-2"></i>Quản lý sản phẩm</h1>
+      <p>Thêm, sửa, xóa và quản lý các sản phẩm sữa của shop</p>
+    </div>
+  </div>
+
+  <div class="container mb-5">
+    <div class="toolbar-card">
+      <div class="row g-3 align-items-end">
+        <div class="col-lg-4 col-md-6">
+          <label class="form-label-milkshop">Tìm kiếm</label>
+          <div class="position-relative">
+            <input type="text" class="form-control-milkshop" id="searchInput" placeholder="Tìm theo tên hoặc mô tả...">
+            <i class="fas fa-search search-icon"></i>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-3">
+          <label class="form-label-milkshop">Trạng thái</label>
+          <select class="form-control-milkshop form-select" id="filterStatus" title="Lọc theo trạng thái">
+            <option value="">Tất cả</option>
+            <option value="Còn hàng">Còn hàng</option>
+            <option value="Hết hàng">Hết hàng</option>
+          </select>
+        </div>
+        <div class="col-lg-2 col-md-3">
+          <label class="form-label-milkshop">Loại sữa</label>
+          <select class="form-control-milkshop form-select" id="filterCategory" title="Lọc theo loại sữa">
+            <option value="">Tất cả</option>
+            <option value="Sữa tươi">Sữa tươi</option>
+            <option value="Sữa bột">Sữa bột</option>
+            <option value="Sữa chua">Sữa chua</option>
+            <option value="Sữa hạt">Sữa hạt</option>
+          </select>
+        </div>
+        <div class="col-lg-2 col-md-3">
+          <label class="form-label-milkshop">Sắp xếp</label>
+          <select class="form-control-milkshop form-select" id="sortBy" title="Sắp xếp sản phẩm">
+            <option value="">Mặc định</option>
+            <option value="deadline-asc">Hạn SD (gần nhất)</option>
+            <option value="deadline-desc">Hạn SD (xa nhất)</option>
+            <option value="price-asc">Giá (thấp → cao)</option>
+            <option value="price-desc">Giá (cao → thấp)</option>
+            <option value="name-asc">Tên (A-Z)</option>
+          </select>
+        </div>
+        <div class="col-lg-2 col-md-3 text-end">
+          <button class="btn btn-primary-milkshop w-100" id="btnAddProduct">
+            <i class="fas fa-plus me-2"></i>Thêm sản phẩm
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="d-flex justify-content-between align-items-center mb-3">
+      <span class="text-muted" id="productCount">0 sản phẩm</span>
+      <div class="btn-group btn-group-sm">
+        <button class="btn btn-outline-secondary active" id="viewGrid" title="Dạng lưới">
+          <i class="fas fa-th-large"></i>
+        </button>
+        <button class="btn btn-outline-secondary" id="viewList" title="Dạng danh sách">
+          <i class="fas fa-list"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="row g-4" id="productsContainer"></div>
+
+    <nav class="mt-4" id="paginationNav">
+      <ul class="pagination justify-content-center" id="pagination"></ul>
+    </nav>
+  </div>
+
+  <!-- Modal Th\u00eam/S\u1eeda s\u1ea3n ph\u1ea9m -->
+  <div class="modal fade" id="productModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalTitle">Thêm sản phẩm mới</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" title="Đóng"></button>
+        </div>
+        <div class="modal-body">
+          <form id="productForm" novalidate>
+            <input type="hidden" id="productId">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label for="productName" class="form-label-milkshop">Tên sản phẩm *</label>
+                <input type="text" class="form-control-milkshop" id="productName" placeholder="Nhập tên sản phẩm" required>
+                <div class="invalid-feedback-milkshop" id="nameError">Tên sản phẩm không được để trống</div>
+              </div>
+              <div class="col-md-6">
+                <label for="productCategory" class="form-label-milkshop">Loại sữa *</label>
+                <select class="form-control-milkshop form-select" id="productCategory" required>
+                  <option value="">-- Chọn loại --</option>
+                  <option value="Sữa tươi">Sữa tươi</option>
+                  <option value="Sữa bột">Sữa bột</option>
+                  <option value="Sữa chua">Sữa chua</option>
+                  <option value="Sữa hạt">Sữa hạt</option>
+                </select>
+                <div class="invalid-feedback-milkshop" id="categoryError">Vui lòng chọn loại sữa</div>
+              </div>
+              <div class="col-12">
+                <label for="productDescription" class="form-label-milkshop">Mô tả *</label>
+                <textarea class="form-control-milkshop" id="productDescription" rows="3" placeholder="Mô tả sản phẩm (tối thiểu 10 ký tự)" required></textarea>
+                <div class="invalid-feedback-milkshop" id="descriptionError">Mô tả phải có tối thiểu 10 ký tự</div>
+              </div>
+              <div class="col-md-4">
+                <label for="productPrice" class="form-label-milkshop">Giá (VNĐ) *</label>
+                <input type="number" class="form-control-milkshop" id="productPrice" placeholder="0" min="1" required>
+                <div class="invalid-feedback-milkshop" id="priceError">Giá phải lớn hơn 0</div>
+              </div>
+              <div class="col-md-4">
+                <label for="productDeadline" class="form-label-milkshop">Hạn sử dụng *</label>
+                <input type="date" class="form-control-milkshop" id="productDeadline" required>
+                <div class="invalid-feedback-milkshop" id="deadlineError">Hạn sử dụng không được nhỏ hơn ngày hiện tại</div>
+              </div>
+              <div class="col-md-4">
+                <label for="productStatus" class="form-label-milkshop">Trạng thái</label>
+                <select class="form-control-milkshop form-select" id="productStatus">
+                  <option value="Còn hàng">Còn hàng</option>
+                  <option value="Hết hàng">Hết hàng</option>
+                </select>
+              </div>
+              <div class="col-12">
+                <label for="productImage" class="form-label-milkshop">Hình ảnh (URL)</label>
+                <input type="text" class="form-control-milkshop" id="productImage" placeholder="assets/img/ten_hinh.jpg">
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+          <button type="button" class="btn btn-primary-milkshop" id="btnSaveProduct">
+            <i class="fas fa-save me-2"></i>Lưu sản phẩm
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="assets/js/storageService.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/products.js"></script>
+</body>
+</html>
