@@ -185,7 +185,7 @@ $(document).ready(function () {
       html += '<div class="' + colClass + ' product-card fade-in" draggable="true" data-id="' + product.id + '" style="animation-delay:' + (index * 0.05) + 's">' +
         '<div class="card-milkshop">' +
           '<div class="img-wrapper">' +
-            '<img src="' + product.image + '" class="card-img-top" alt="' + product.name + '" onerror="this.src=\'assets/img/suatuoivinamilk.jpg\'">' +
+            '<img src="' + product.image + '" class="card-img-top" alt="' + product.name + '" onerror="this.src=\'assets/img/no-image.svg\'">' +
           '</div>' +
           '<div class="card-body">' +
             '<div class="product-meta">' +
@@ -308,7 +308,7 @@ $(document).ready(function () {
       deadline: $('#productDeadline').val(),
       category: $('#productCategory').val(),
       status: $('#productStatus').val(),
-      image: $('#productImage').val().trim() || 'assets/img/suatuoivinamilk.jpg'
+      image: $('#productImage').val().trim() || 'assets/img/no-image.svg'
     };
 
     if (editingId) {

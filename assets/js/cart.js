@@ -120,7 +120,7 @@ $(document).ready(function () {
     var html = '';
     cart.forEach(function (item) {
       html += '<div class="cart-item fade-in">' +
-        '<img src="' + (item.image || 'assets/img/suatuoivinamilk.jpg') + '" alt="' + item.name + '" class="cart-item-img" onerror="this.src=\'assets/img/suatuoivinamilk.jpg\'">' +
+        '<img src="' + (item.image || 'assets/img/no-image.svg') + '" alt="' + item.name + '" class="cart-item-img" onerror="this.src=\'assets/img/no-image.svg\'">' +
         '<div class="cart-item-info">' +
           '<h6>' + item.name + '</h6>' +
           '<span class="cart-item-price">' + formatPrice(item.price) + ' / sản phẩm</span>' +
@@ -230,7 +230,7 @@ $(document).ready(function () {
       var itemsHtml = '';
       order.items.forEach(function (item) {
         itemsHtml += '<div class="order-product-row">' +
-          '<img src="' + (item.image || 'assets/img/suatuoivinamilk.jpg') + '" alt="' + item.name + '" class="order-product-img" onerror="this.src=\'assets/img/suatuoivinamilk.jpg\'">' +
+          '<img src="' + (item.image || 'assets/img/no-image.svg') + '" alt="' + item.name + '" class="order-product-img" onerror="this.src=\'assets/img/no-image.svg\'">' +
           '<div class="order-product-info">' +
             '<span class="order-product-name">' + item.name + '</span>' +
             '<span class="order-product-detail">' + formatPrice(item.price) + ' × ' + item.quantity + '</span>' +

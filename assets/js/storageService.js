@@ -208,7 +208,7 @@ var StorageService = (function () {
       deadline: data.deadline,
       category: data.category,
       status: data.status || 'Còn hàng',
-      image: data.image || 'assets/img/suatuoivinamilk.jpg',
+      image: data.image || 'assets/img/no-image.svg',
       createdAt: new Date().toISOString()
     };
     products.push(newProduct);
