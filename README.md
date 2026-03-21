@@ -41,7 +41,7 @@ MilkShop/
 - **Tìm kiếm / Lọc / Sắp xếp**: Theo tên, loại, trạng thái, giá, hạn sử dụng
 - **Giỏ hàng**: Thêm sản phẩm, cập nhật số lượng, đặt hàng
 - **Thống kê**: 3 loại biểu đồ Chart.js (cột, tròn, giá trung bình)
-- **Đăng nhập**: 2 vai trò — Admin (`admin/123456`) và Khách (`user/123456`)
+- **Đăng nhập**: 2 vai trò — Admin (`admin/123456`) và Khách (`khach/123456`)
 - **Phân quyền**: Admin → CRUD, Khách → Xem + Mua hàng
 
 ## 🎁 Tính năng nâng cao
@@ -65,7 +65,7 @@ MilkShop/
 2. Mở `index.html` bằng trình duyệt (hoặc dùng Live Server trong VS Code)
 3. Đăng nhập:
    - **Admin**: `admin` / `123456`
-   - **Khách**: `user` / `123456`
+   - **Khách**: `khach` / `123456`
 
 ## 👥 Thành viên nhóm
 
