@@ -11,8 +11,11 @@ $(document).ready(function () {
   applyUrlParams();
   renderProducts();
 
-  // Ẩn nút quản lý cho khách hàng
-  if (!isAdmin()) {
+  // Phân quyền giao diện
+  if (isAdmin()) {
+    $('#pageTitle').html('<i class="fas fa-cogs me-2"></i>Quản lý sản phẩm');
+    $('#pageSubtitle').text('Thêm, sửa, xóa và quản lý các sản phẩm sữa của shop');
+  } else {
     $('#btnAddProduct').hide();
   }
 
@@ -61,7 +64,13 @@ $(document).ready(function () {
   // Kiểm tra dữ liệu trực tiếp
   $('#productName').on('input', function () { validateField('name'); });
   $('#productDescription').on('input', function () { validateField('description'); });
-  $('#productPrice').on('input', function () { validateField('price'); });
+  $('#productPrice').on('input', function () {
+    var raw = $(this).val().replace(/\./g, '').replace(/[^0-9]/g, '');
+    if (raw) {
+      $(this).val(Number(raw).toLocaleString('vi-VN'));
+    }
+    validateField('price');
+  });
   $('#productDeadline').on('change', function () { validateField('deadline'); });
   $('#productCategory').on('change', function () { validateField('category'); });
 
@@ -304,7 +313,7 @@ $(document).ready(function () {
     var data = {
       name: $('#productName').val().trim(),
       description: $('#productDescription').val().trim(),
-      price: Number($('#productPrice').val()),
+      price: Number($('#productPrice').val().replace(/\./g, '')),
       deadline: $('#productDeadline').val(),
       category: $('#productCategory').val(),
       status: $('#productStatus').val(),
@@ -334,7 +343,7 @@ $(document).ready(function () {
     $('#productId').val(id);
     $('#productName').val(product.name);
     $('#productDescription').val(product.description);
-    $('#productPrice').val(product.price);
+    $('#productPrice').val(Number(product.price).toLocaleString('vi-VN'));
     $('#productDeadline').val(product.deadline);
     $('#productCategory').val(product.category);
     $('#productStatus').val(product.status);
@@ -393,7 +402,7 @@ $(document).ready(function () {
         break;
 
       case 'price':
-        var price = Number($('#productPrice').val());
+        var price = Number($('#productPrice').val().replace(/\./g, ''));
         if (!price || price <= 0) {
           setInvalid('productPrice', 'priceError', 'Giá phải lớn hơn 0');
           valid = false;

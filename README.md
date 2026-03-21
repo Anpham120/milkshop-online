@@ -71,10 +71,10 @@ MilkShop/
 
 | STT | Họ tên | MSSV | Phụ trách |
 |-----|--------|------|-----------|
-| 1 | Phạm Duy An (Nhóm trưởng) | BIT240002 | Trang chủ + Đăng nhập |
+| 1 | Phạm Duy An (Nhóm trưởng) | BIT240002 | Trang chủ |
 | 2 | Bùi Đào Đức Anh | BIT240025 | Quản lý sản phẩm (CRUD) |
-| 3 | Đỗ Tuấn Anh | BIT240015 | Giỏ hàng + Giới thiệu |
-| 4 | Nguyễn Quang Hiếu | BIT240091 | CSS/JS chung (hạ tầng) |
+| 3 | Đỗ Tuấn Anh | BIT240015 | Giỏ hàng + Đăng nhập |
+| 4 | Nguyễn Quang Hiếu | BIT240091 | CSS/JS chung + Giới thiệu |
 | 5 | Phan Văn Hiếu | BIT240094 | Thống kê + Lịch |
 
 ## 📄 Giấy phép
