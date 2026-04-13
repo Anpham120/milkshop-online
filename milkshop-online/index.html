@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MilkShop — Quản lý bán sữa trực tuyến</title>
+  <meta name="description" content="MilkShop Online - Hệ thống quản lý bán sữa trực tuyến">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="assets/css/common.css" rel="stylesheet">
+  <link href="assets/css/home.css" rel="stylesheet">
+</head>
+<body>
+
+  <div id="navbar-placeholder"></div>
+
+  <!-- Hero Carousel toàn vùng -->
+  <section class="hero-carousel" id="heroCarousel">
+    <div class="hero-slides">
+      <!-- Slide 1 -->
+      <div class="hero-slide hero-slide-1 active">
+        <div class="hero-slide-overlay"></div>
+        <div class="container">
+          <div class="hero-slide-content">
+            <span class="hero-badge"><i class="fas fa-star me-1"></i>Chất lượng hàng đầu</span>
+            <h1 class="hero-title">Sữa chất lượng cao cho <br><span class="text-gradient" id="typingTarget"></span><span class="typing-cursor">|</span></h1>
+            <p class="hero-desc">Hệ thống quản lý bán sữa trực tuyến — cung cấp sản phẩm sữa tươi, sữa bột, sữa chua và sữa hạt từ những thương hiệu uy tín hàng đầu Việt Nam.</p>
+            <div class="hero-actions">
+              <a href="products.html" class="btn btn-primary-milkshop btn-lg"><i class="fas fa-box-open me-2"></i>Xem sản phẩm</a>
+              <a href="#featuredSection" class="btn btn-outline-milkshop btn-lg btn-scroll-down">Tìm hiểu thêm <i class="fas fa-chevron-down ms-1"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Slide 2 -->
+      <div class="hero-slide hero-slide-2">
+        <div class="hero-slide-overlay"></div>
+        <div class="container">
+          <div class="hero-slide-content">
+            <span class="hero-badge"><i class="fas fa-fire me-1"></i>Flash Sale hôm nay</span>
+            <h1 class="hero-title">Ưu đãi <span class="text-gradient">giảm đến 30%</span></h1>
+            <p class="hero-desc">Hàng trăm sản phẩm sữa chính hãng được giảm giá sốc — chỉ trong hôm nay. Nhanh tay kẻo hết!</p>
+            <div class="hero-actions">
+              <a href="products.html" class="btn btn-primary-milkshop btn-lg"><i class="fas fa-shopping-cart me-2"></i>Mua ngay</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Slide 3 -->
+      <div class="hero-slide hero-slide-3">
+        <div class="hero-slide-overlay"></div>
+        <div class="container">
+          <div class="hero-slide-content">
+            <span class="hero-badge"><i class="fas fa-truck me-1"></i>Giao hàng nhanh</span>
+            <h1 class="hero-title">Giao hàng <span class="text-gradient">trong 24 giờ</span></h1>
+            <p class="hero-desc">Đặt hàng hôm nay, nhận sữa tươi ngay ngày mai. Miễn phí giao hàng cho đơn từ 200.000₫.</p>
+            <div class="hero-actions">
+              <a href="products.html" class="btn btn-primary-milkshop btn-lg"><i class="fas fa-box-open me-2"></i>Khám phá ngay</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Slide 4 -->
+      <div class="hero-slide hero-slide-4">
+        <div class="hero-slide-overlay"></div>
+        <div class="container">
+          <div class="hero-slide-content">
+            <span class="hero-badge"><i class="fas fa-shield-alt me-1"></i>100% chính hãng</span>
+            <h1 class="hero-title">Thương hiệu <span class="text-gradient">uy tín hàng đầu</span></h1>
+            <p class="hero-desc">Vinamilk, TH True Milk, Mộc Châu, Ensure… Tất cả sản phẩm đều nhập chính hãng, đảm bảo chất lượng.</p>
+            <div class="hero-actions">
+              <a href="about.html" class="btn btn-primary-milkshop btn-lg"><i class="fas fa-info-circle me-2"></i>Về chúng tôi</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Nút prev/next -->
+    <button class="hero-arrow hero-prev" id="heroPrev" title="Slide trước" aria-label="Slide trước"><i class="fas fa-chevron-left"></i></button>
+    <button class="hero-arrow hero-next" id="heroNext" title="Slide tiếp" aria-label="Slide tiếp"><i class="fas fa-chevron-right"></i></button>
+
+    <!-- Dots -->
+    <div class="hero-dots" id="heroDots">
+      <span class="hero-dot active" data-slide="0"></span>
+      <span class="hero-dot" data-slide="1"></span>
+      <span class="hero-dot" data-slide="2"></span>
+      <span class="hero-dot" data-slide="3"></span>
+    </div>
+
+    <!-- Stats bar -->
+    <div class="hero-stats-bar">
+      <div class="container">
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <i class="fas fa-box-open stat-icon"></i>
+            <span class="stat-number" id="statProducts" data-count="0">0</span><span class="stat-plus">+</span>
+            <span class="stat-label">Sản phẩm</span>
+          </div>
+          <div class="hero-stat">
+            <i class="fas fa-tags stat-icon"></i>
+            <span class="stat-number" id="statCategories" data-count="0">0</span>
+            <span class="stat-label">Danh mục</span>
+          </div>
+          <div class="hero-stat">
+            <i class="fas fa-award stat-icon"></i>
+            <span class="stat-number" id="statBrands" data-count="0">0</span><span class="stat-plus">+</span>
+            <span class="stat-label">Thương hiệu</span>
+          </div>
+          <div class="hero-stat">
+            <i class="fas fa-shipping-fast stat-icon"></i>
+            <span class="stat-number" data-count="24">0</span><span class="stat-plus">h</span>
+            <span class="stat-label">Giao hàng</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sản phẩm nổi bật -->
+  <section class="section-featured" id="featuredSection">
+    <div class="container">
+      <div class="section-header">
+        <h2>Sản phẩm nổi bật</h2>
+        <div class="section-divider"></div>
+        <p>Những sản phẩm sữa được ưa chuộng nhất tại MilkShop</p>
+      </div>
+      <div class="row g-4" id="featuredProducts">
+        <!-- Hiển thị bởi JS -->
+      </div>
+      <div class="text-center mt-4">
+        <a href="products.html" class="btn btn-outline-milkshop">
+          Xem tất cả sản phẩm <i class="fas fa-arrow-right ms-2"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hàng bán chạy -->
+  <section class="section-bestsellers">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag section-tag-fire"><i class="fas fa-crown me-1"></i>BÁN CHẠY</span>
+        <h2>Hàng bán chạy</h2>
+        <div class="section-divider"></div>
+        <p>Những sản phẩm được khách hàng tin tưởng và mua nhiều nhất</p>
+      </div>
+      <div class="row g-4" id="bestsellerProducts">
+        <!-- Hiển thị bởi JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Hàng mới về -->
+  <section class="section-newarrivals">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag section-tag-new"><i class="fas fa-gem me-1"></i>MỚI VỀ</span>
+        <h2>Hàng mới về</h2>
+        <div class="section-divider"></div>
+        <p>Những sản phẩm vừa được cập nhật mới nhất tại MilkShop</p>
+      </div>
+      <div class="row g-4" id="newArrivalProducts">
+        <!-- Hiển thị bởi JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Tại sao chọn chúng tôi -->
+  <section class="section-why">
+    <div class="container">
+      <div class="section-header">
+        <h2>Tại sao chọn MilkShop?</h2>
+        <div class="section-divider"></div>
+      </div>
+      <div class="row g-4">
+        <div class="col-lg-3 col-md-6">
+          <div class="why-card slide-up">
+            <div class="why-icon">
+              <i class="fas fa-shield-alt"></i>
+            </div>
+            <h5>Chất lượng đảm bảo</h5>
+            <p>100% sản phẩm chính hãng, nguồn gốc rõ ràng, đạt tiêu chuẩn an toàn thực phẩm.</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <div class="why-card slide-up delay-1">
+            <div class="why-icon why-icon-accent">
+              <i class="fas fa-truck"></i>
+            </div>
+            <h5>Giao hàng nhanh</h5>
+            <p>Giao hàng tận nơi trong 2 giờ cho khu vực nội thành Hà Nội.</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <div class="why-card slide-up delay-2">
+            <div class="why-icon why-icon-success">
+              <i class="fas fa-tags"></i>
+            </div>
+            <h5>Giá cả hợp lý</h5>
+            <p>Cam kết giá tốt nhất thị trường, nhiều chương trình khuyến mãi hấp dẫn.</p>
+          </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <div class="why-card slide-up delay-3">
+            <div class="why-icon why-icon-danger">
+              <i class="fas fa-headset"></i>
+            </div>
+            <h5>Hỗ trợ 24/7</h5>
+            <p>Đội ngũ tư vấn nhiệt tình, sẵn sàng hỗ trợ bạn bất cứ lúc nào.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Danh mục sản phẩm -->
+  <section class="section-categories">
+    <div class="container">
+      <div class="section-header">
+        <h2>Danh mục sản phẩm</h2>
+        <div class="section-divider"></div>
+      </div>
+      <div class="row g-4">
+        <div class="col-lg-3 col-md-6">
+          <a href="products.html?category=S%E1%BB%AFa+t%C6%B0%C6%A1i" class="category-card category-card-blue">
+            <i class="fas fa-glass-whiskey"></i>
+            <h5>Sữa tươi</h5>
+            <span id="countSuaTuoi">0 sản phẩm</span>
+          </a>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <a href="products.html?category=S%E1%BB%AFa+b%E1%BB%99t" class="category-card category-card-amber">
+            <i class="fas fa-baby-carriage"></i>
+            <h5>Sữa bột</h5>
+            <span id="countSuaBot">0 sản phẩm</span>
+          </a>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <a href="products.html?category=S%E1%BB%AFa+chua" class="category-card category-card-purple">
+            <i class="fas fa-ice-cream"></i>
+            <h5>Sữa chua</h5>
+            <span id="countSuaChua">0 sản phẩm</span>
+          </a>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <a href="products.html?category=S%E1%BB%AFa+h%E1%BA%A1t" class="category-card category-card-green">
+            <i class="fas fa-seedling"></i>
+            <h5>Sữa hạt</h5>
+            <span id="countSuaHat">0 sản phẩm</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Flash Sale -->
+  <section class="section-flashsale">
+    <div class="flashsale-bg"></div>
+    <div class="container flashsale-content">
+      <div class="flashsale-badge"><i class="fas fa-bolt me-1"></i>FLASH SALE</div>
+      <h2 class="flashsale-title">Ưu Đãi Hôm Nay — Giảm Đến <span>30%</span></h2>
+      <p class="flashsale-desc">Đừng bỏ lỡ! Hàng trăm sản phẩm sữa đang được giảm giá trong thời gian giới hạn.</p>
+      <div class="flashsale-countdown" id="flashCountdown">
+        <div class="countdown-block">
+          <span class="countdown-num" id="cdHours">00</span>
+          <span class="countdown-label">Giờ</span>
+        </div>
+        <div class="countdown-block">
+          <span class="countdown-num" id="cdMinutes">00</span>
+          <span class="countdown-label">Phút</span>
+        </div>
+        <div class="countdown-block">
+          <span class="countdown-num" id="cdSeconds">00</span>
+          <span class="countdown-label">Giây</span>
+        </div>
+      </div>
+      <!-- Flash Sale Products Grid -->
+      <div class="row g-3 justify-content-center mb-4" id="flashSaleProducts"></div>
+      <a href="products.html" class="flashsale-btn">
+        <i class="fas fa-bolt me-2"></i>Mua Ngay Kẻo Hết
+      </a>
+    </div>
+  </section>
+
+  <!-- Nhận xét từ khách hàng -->
+  <section class="section-testimonials">
+    <div class="container">
+      <div class="testimonials-header">
+        <div>
+          <span class="testimonials-badge">PHẢN HỒI TỪ KHÁCH HÀNG</span>
+          <h2 class="testimonials-title">Khách Hàng Nói Gì?</h2>
+          <p class="testimonials-desc">Những lời chia sẻ chân thành từ khách hàng là động lực để MilkShop không ngừng hoàn thiện và nâng cao chất lượng sản phẩm mỗi ngày.</p>
+        </div>
+        <div class="testimonials-rating-badge">
+          <div class="rating-icon">⭐</div>
+          <div>
+            <div class="rating-score">5.0 <span>★★★★★</span></div>
+            <div class="rating-text">+2K đánh giá</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row g-4" id="testimonialCards">
+        <div class="col-lg-4 col-md-6">
+          <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">"Sữa tươi ở MilkShop rất ngon, con tôi rất thích uống. Giao hàng nhanh, đóng gói cẩn thận, nhân viên tư vấn nhiệt tình."</p>
+            <div class="testimonial-author">
+              <img src="assets/img/avatar-customer-01.jpg" alt="Nguyễn Thảo" class="testimonial-avatar">
+              <div>
+                <div class="testimonial-name">Nguyễn Thảo</div>
+                <div class="testimonial-role">Nhân viên văn phòng — Hà Nội</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">"Sản phẩm sữa bột cho bé chất lượng tuyệt vời! Bé nhà tôi tăng cân đều đặn sau 2 tháng sử dụng. Rất hài lòng với dịch vụ."</p>
+            <div class="testimonial-author">
+              <img src="assets/img/avatar-customer-02.jpg" alt="Minh Tuấn" class="testimonial-avatar">
+              <div>
+                <div class="testimonial-name">Minh Tuấn</div>
+                <div class="testimonial-role">Kỹ sư — TP Hồ Chí Minh</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <div class="testimonial-card">
+            <div class="testimonial-stars">★★★★★</div>
+            <p class="testimonial-text">"Mua lần đầu và đã trở thành khách hàng thường xuyên. Sữa hạt và sữa chua đều tươi ngon, giá cả hợp lý, giao hàng đúng hẹn."</p>
+            <div class="testimonial-author">
+              <img src="assets/img/avatar-customer-03.jpg" alt="Thu Hà" class="testimonial-avatar">
+              <div>
+                <div class="testimonial-name">Thu Hà</div>
+                <div class="testimonial-role">Kinh doanh — Đà Nẵng</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="assets/js/storage-service.js"></script>
+  <script src="assets/js/app-core.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/home.js"></script>
+</body>
+</html>

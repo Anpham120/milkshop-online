@@ -1,0 +1,656 @@
+/* ====================================
+   PRODUCTS.CSS — MilkShop Online
+   Banner + Sidebar Filter + Product Grid
+   ==================================== */
+
+/* ====================================
+   FILTER SIDEBAR
+   ==================================== */
+.filter-sidebar {
+  position: sticky;
+  top: 100px;
+}
+
+.filter-group {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  margin-bottom: 1.25rem;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.filter-group-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  padding: 1rem 1.25rem;
+  margin-bottom: 0;
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+}
+
+.filter-group-title i {
+  color: var(--primary);
+}
+
+.filter-group-body {
+  padding: 1rem 1.25rem;
+}
+
+/* Custom Radio Buttons */
+.filter-radio {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 0;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  font-weight: 500;
+  transition: color 0.2s ease;
+  margin-bottom: 0;
+}
+
+.filter-radio:hover {
+  color: var(--primary);
+}
+
+.filter-radio input {
+  display: none;
+}
+
+.filter-radio .radio-circle {
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--border-color);
+  border-radius: 50%;
+  flex-shrink: 0;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.filter-radio input:checked ~ .radio-circle {
+  border-color: var(--primary);
+  background: var(--primary);
+}
+
+.filter-radio input:checked ~ .radio-circle::after {
+  content: '';
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #fff;
+}
+
+.filter-radio .cat-icon {
+  font-size: 0.85rem;
+  width: 18px;
+  text-align: center;
+}
+
+/* ====================================
+   FILTER TOGGLE (inside card)
+   ==================================== */
+.filter-toggle-divider {
+  border-top: 1px solid var(--border-color);
+  padding: 0;
+}
+
+.btn-filter-expand {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 12px 1.25rem;
+  border: none;
+  background: transparent;
+  color: var(--primary);
+  font-size: 0.88rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.btn-filter-expand:hover {
+  background: rgba(37, 99, 235, 0.04);
+}
+
+.btn-filter-expand.active {
+  background: rgba(37, 99, 235, 0.06);
+}
+
+.toggle-arrow {
+  transition: transform 0.3s ease;
+  font-size: 0.75rem;
+}
+
+.btn-filter-expand.active .toggle-arrow {
+  transform: rotate(180deg);
+}
+
+/* Advanced filter section (slide down inside card) */
+.filter-advanced {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+  opacity: 0;
+}
+
+.filter-advanced.open {
+  max-height: 600px;
+  opacity: 1;
+  padding: 0 1.25rem 1rem;
+}
+
+.filter-status-always {
+  border-top: 1px solid var(--border-color);
+  padding-top: 0.75rem;
+}
+
+.filter-section {
+  margin-bottom: 1rem;
+}
+
+.filter-section-title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  margin-bottom: 10px;
+  padding-top: 10px;
+  border-top: 1px dashed var(--border-color);
+  display: flex;
+  align-items: center;
+}
+
+.filter-section-title i {
+  color: var(--primary);
+  font-size: 0.82rem;
+}
+/* ====================================
+   BRAND CHECKBOX
+   ==================================== */
+.brand-list {
+  max-height: 180px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.brand-list::-webkit-scrollbar {
+  width: 4px;
+}
+
+.brand-list::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 4px;
+}
+
+.filter-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 0;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: var(--text-primary);
+  font-weight: 500;
+  transition: color 0.2s ease;
+  margin-bottom: 0;
+}
+
+.filter-checkbox:hover {
+  color: var(--primary);
+}
+
+.filter-checkbox input {
+  display: none;
+}
+
+.filter-checkbox .check-box {
+  width: 18px;
+  height: 18px;
+  border: 2px solid var(--border-color);
+  border-radius: 4px;
+  flex-shrink: 0;
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.filter-checkbox input:checked ~ .check-box {
+  border-color: var(--primary);
+  background: var(--primary);
+}
+
+.filter-checkbox input:checked ~ .check-box::after {
+  content: '✓';
+  position: absolute;
+  top: -1px;
+  left: 2px;
+  font-size: 12px;
+  color: #fff;
+  font-weight: bold;
+}
+
+/* Card: Heart Icon */
+.img-wrapper {
+  position: relative;
+}
+
+/* Card: Status Badge */
+.card-status-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  z-index: 2;
+  letter-spacing: 0.3px;
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.status-in-stock {
+  background: rgba(16, 185, 129, 0.85);
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
+}
+
+.status-out-stock {
+  background: rgba(239, 68, 68, 0.85);
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(239, 68, 68, 0.3);
+}
+
+/* Card: Discount Badge */
+.card-discount-badge {
+  position: absolute;
+  top: 10px;
+  right: 42px;
+  background: linear-gradient(135deg, #f59e0b, #ef4444);
+  color: #fff;
+  padding: 3px 10px;
+  border-radius: 6px;
+  font-size: 0.7rem;
+  font-weight: 800;
+  z-index: 2;
+  box-shadow: 0 2px 8px rgba(239, 68, 68, 0.3);
+  animation: discountPulse 2s ease-in-out infinite;
+}
+
+.card-heart {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: #94a3b8;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card-heart:hover {
+  color: #ef4444;
+  transform: scale(1.1);
+}
+
+/* Card: Info Row */
+.product-info-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 6px;
+  flex-wrap: wrap;
+}
+
+.product-info-row .info-cat {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.product-info-row .info-cat i {
+  margin-right: 3px;
+}
+
+.product-info-row .info-deadline {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+.product-info-row .info-deadline i {
+  margin-right: 3px;
+}
+
+.product-info-row .info-deadline.expired {
+  color: var(--danger);
+  font-weight: 600;
+}
+
+/* Card: Star Rating */
+.product-rating {
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.star-gold {
+  color: #f59e0b;
+  font-size: 0.78rem;
+}
+
+.star-gray {
+  color: #cbd5e1;
+  font-size: 0.78rem;
+}
+
+.rating-count {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-left: 4px;
+}
+
+/* Card: Bottom Row */
+.card-bottom {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 8px;
+  border-top: 1px solid var(--border-color);
+  flex-wrap: nowrap;
+  gap: 6px;
+}
+
+/* Green Add-to-Cart Button */
+.btn-add-cart {
+  background: linear-gradient(135deg, #2563eb, #1d4ed8);
+  border: none;
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.82rem;
+  padding: 7px 14px;
+  border-radius: 8px;
+  transition: all 0.25s ease;
+  letter-spacing: 0.3px;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+
+.btn-add-cart:hover {
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.4);
+  color: #fff;
+}
+
+/* ====================================
+   PRODUCTS TOOLBAR (Top bar)
+   ==================================== */
+.products-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 20px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.toolbar-left {
+  flex: 1;
+  min-width: 200px;
+}
+
+.toolbar-search {
+  position: relative;
+}
+
+.toolbar-search .search-icon {
+  position: absolute;
+  left: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+  pointer-events: none;
+  font-size: 0.9rem;
+}
+
+.toolbar-search-input {
+  display: block;
+  width: 100%;
+  padding: 10px 16px 10px 40px;
+  border: 1.5px solid var(--border-color);
+  border-radius: 10px;
+  background: var(--bg-input);
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  font-family: inherit;
+  transition: all 0.25s ease;
+  outline: none;
+}
+
+.toolbar-search-input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.08);
+}
+
+.toolbar-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.toolbar-select {
+  padding: 8px 32px 8px 14px;
+  border: 1.5px solid var(--border-color);
+  border-radius: 10px;
+  background: var(--bg-input);
+  color: var(--text-primary);
+  font-size: 0.85rem;
+  font-family: inherit;
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.25s ease;
+  -webkit-appearance: none;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+}
+
+.toolbar-select:focus {
+  border-color: var(--primary);
+}
+
+/* ====================================
+   PRODUCT CARDS
+   ==================================== */
+.product-card {
+  height: 100%;
+}
+
+.product-card .card-milkshop {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-card .card-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.product-card .card-actions {
+  margin-top: auto;
+  padding-top: 12px;
+  border-top: 1px solid var(--border-color);
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.product-card .card-actions .btn {
+  font-size: 0.8rem;
+  padding: 5px 10px;
+  border-radius: 6px;
+}
+
+.product-card .product-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.product-card .product-deadline {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.product-card .product-deadline i {
+  margin-right: 4px;
+}
+
+.product-card .product-deadline.expired {
+  color: var(--danger);
+  font-weight: 600;
+}
+
+/* List View */
+.list-view .product-card {
+  margin-bottom: 0;
+}
+
+.list-view .card-milkshop {
+  flex-direction: row;
+  align-items: center;
+}
+
+.list-view .img-wrapper {
+  width: 120px;
+  min-width: 120px;
+  height: 100%;
+  border-radius: var(--border-radius) 0 0 var(--border-radius);
+}
+
+.list-view .card-img-top {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: var(--border-radius) 0 0 var(--border-radius);
+}
+
+.list-view .card-body {
+  padding: 16px;
+}
+
+/* Drag & Drop */
+.btn-toggle-status {
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.btn-toggle-status:hover {
+  opacity: 0.8;
+}
+
+.drag-hint {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.product-card.dragging {
+  opacity: 0.5;
+  transform: rotate(2deg);
+}
+
+.product-card.drag-over {
+  border: 2px dashed var(--primary);
+  border-radius: var(--border-radius);
+}
+
+/* View Toggle */
+.btn-group .btn.active {
+  background: var(--primary);
+  color: #fff;
+  border-color: var(--primary);
+}
+
+/* Dark Mode */
+[data-theme="dark"] .toolbar-select {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  border-color: var(--border-color);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23999' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+}
+
+[data-theme="dark"] .form-select {
+  background-color: var(--bg-input);
+  color: var(--text-primary);
+  border-color: var(--border-color);
+}
+
+/* ====================================
+   RESPONSIVE
+   ==================================== */
+@media (max-width: 991.98px) {
+  .filter-sidebar {
+    position: static;
+  }
+
+  .products-toolbar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .toolbar-right {
+    justify-content: space-between;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .products-toolbar {
+    padding: 12px 14px;
+  }
+
+  .toolbar-right {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .list-view .card-milkshop {
+    flex-direction: column;
+  }
+
+  .list-view .img-wrapper,
+  .list-view .card-img-top {
+    width: 100%;
+    height: 160px;
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+  }
+}

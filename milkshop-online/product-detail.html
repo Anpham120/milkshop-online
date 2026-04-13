@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chi tiết sản phẩm — MilkShop</title>
+  <meta name="description" content="Xem chi tiết sản phẩm sữa tại MilkShop Online">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="assets/css/common.css" rel="stylesheet">
+  <link href="assets/css/product-detail.css" rel="stylesheet">
+</head>
+<body>
+
+  <div id="navbar-placeholder"></div>
+
+  <!-- Breadcrumb -->
+  <section class="section-breadcrumb">
+    <div class="container">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb mb-0">
+          <li class="breadcrumb-item"><a href="index.html"><i class="fas fa-home me-1"></i>Trang chủ</a></li>
+          <li class="breadcrumb-item"><a href="products.html">Sản phẩm</a></li>
+          <li class="breadcrumb-item active" id="breadcrumbName">Chi tiết</li>
+        </ol>
+      </nav>
+    </div>
+  </section>
+
+  <!-- Product Detail -->
+  <section class="section-product-detail">
+    <div class="container">
+      <div id="productDetailContent">
+        <!-- JS sẽ render nội dung -->
+        <div class="text-center py-5">
+          <div class="spinner-border text-primary" role="status"></div>
+          <p class="mt-3 text-muted">Đang tải sản phẩm...</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sản phẩm liên quan -->
+  <section class="section-related-products">
+    <div class="container">
+      <h3 class="section-heading"><i class="fas fa-box-open me-2"></i>Sản phẩm liên quan</h3>
+      <div class="row g-4" id="relatedProducts">
+        <!-- JS sẽ render -->
+      </div>
+    </div>
+  </section>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="assets/js/storage-service.js"></script>
+  <script src="assets/js/app-core.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/product-detail.js"></script>
+</body>
+</html>

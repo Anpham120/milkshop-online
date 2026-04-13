@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quản lý sản phẩm — MilkShop</title>
+  <meta name="description" content="Quản lý sản phẩm sữa - Thêm, sửa, xóa, tìm kiếm, lọc, sắp xếp sản phẩm">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="assets/css/common.css" rel="stylesheet">
+  <link href="assets/css/products.css" rel="stylesheet">
+</head>
+<body>
+
+  <div id="navbar-placeholder"></div>
+
+  <div class="page-header page-header-bg-1">
+    <div class="page-header-overlay"></div>
+    <div class="container page-header-content">
+      <h1><i class="fas fa-box me-2"></i>Sản Phẩm</h1>
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb justify-content-center mb-0">
+          <li class="breadcrumb-item"><a href="index.html"><i class="fas fa-home me-1"></i>Trang chủ</a></li>
+          <li class="breadcrumb-item active">Sản phẩm</li>
+        </ol>
+      </nav>
+    </div>
+  </div>
+
+  <div class="container mb-5">
+    <div class="row g-4">
+
+      <!-- ===== SIDEBAR BÊN TRÁI ===== -->
+      <div class="col-lg-3">
+        <div class="filter-sidebar">
+
+          <!-- Danh mục + Bộ lọc nâng cao (gộp trong 1 card) -->
+          <div class="filter-group">
+            <h6 class="filter-group-title"><i class="fas fa-list me-2"></i>Danh Mục</h6>
+            <div class="filter-group-body">
+              <label class="filter-checkbox">
+                <input type="checkbox" name="filterCategoryAll" checked>
+                <span class="check-box"></span>
+                <span>Tất cả sản phẩm</span>
+              </label>
+              <label class="filter-checkbox">
+                <input type="checkbox" name="filterCategory" value="Sữa tươi">
+                <span class="check-box"></span>
+                <i class="fas fa-shopping-basket cat-icon cat-icon-blue"></i>
+                <span>Sữa tươi</span>
+              </label>
+              <label class="filter-checkbox">
+                <input type="checkbox" name="filterCategory" value="Sữa bột">
+                <span class="check-box"></span>
+                <i class="fas fa-baby cat-icon cat-icon-amber"></i>
+                <span>Sữa bột</span>
+              </label>
+              <label class="filter-checkbox">
+                <input type="checkbox" name="filterCategory" value="Sữa chua">
+                <span class="check-box"></span>
+                <i class="fas fa-ice-cream cat-icon cat-icon-purple"></i>
+                <span>Sữa chua</span>
+              </label>
+              <label class="filter-checkbox">
+                <input type="checkbox" name="filterCategory" value="Sữa hạt">
+                <span class="check-box"></span>
+                <i class="fas fa-seedling cat-icon cat-icon-green"></i>
+                <span>Sữa hạt</span>
+              </label>
+            </div>
+
+            <!-- Trạng thái (luôn hiển thị) -->
+            <div class="filter-group-body filter-status-always">
+              <label class="filter-radio">
+                <input type="radio" name="filterStatus" value="" checked>
+                <span class="radio-circle"></span>
+                <span>Tất cả</span>
+              </label>
+              <label class="filter-radio">
+                <input type="radio" name="filterStatus" value="Còn hàng">
+                <span class="radio-circle"></span>
+                <i class="fas fa-check-circle cat-icon cat-icon-green"></i>
+                <span>Còn hàng</span>
+              </label>
+              <label class="filter-radio">
+                <input type="radio" name="filterStatus" value="Hết hàng">
+                <span class="radio-circle"></span>
+                <i class="fas fa-times-circle cat-icon cat-icon-red"></i>
+                <span>Hết hàng</span>
+              </label>
+            </div>
+
+            <!-- Toggle mở rộng bộ lọc -->
+            <div class="filter-toggle-divider">
+              <button class="btn-filter-expand" id="btnToggleFilter">
+                <i class="fas fa-sliders-h me-2"></i>Bộ lọc nâng cao
+                <i class="fas fa-chevron-down ms-auto toggle-arrow"></i>
+              </button>
+            </div>
+
+            <!-- Phần mở rộng (ẩn mặc định) -->
+            <div class="filter-advanced" id="filterAdvanced">
+
+
+              <!-- Nhãn hàng -->
+              <div class="filter-section">
+                <h6 class="filter-section-title"><i class="fas fa-copyright me-2"></i>Nhãn Hàng</h6>
+                <div class="brand-list">
+                  <label class="filter-checkbox">
+                    <input type="checkbox" name="filterBrand" value="Vinamilk">
+                    <span class="check-box"></span>
+                    <span>Vinamilk</span>
+                  </label>
+                  <label class="filter-checkbox">
+                    <input type="checkbox" name="filterBrand" value="TH">
+                    <span class="check-box"></span>
+                    <span>TH True Milk</span>
+                  </label>
+                  <label class="filter-checkbox">
+                    <input type="checkbox" name="filterBrand" value="Mộc Châu">
+                    <span class="check-box"></span>
+                    <span>Mộc Châu Milk</span>
+                  </label>
+                  <label class="filter-checkbox">
+                    <input type="checkbox" name="filterBrand" value="Dalat">
+                    <span class="check-box"></span>
+                    <span>Dalat Milk</span>
+                  </label>
+                  <label class="filter-checkbox">
+                    <input type="checkbox" name="filterBrand" value="Abbott">
+                    <span class="check-box"></span>
+                    <span>Abbott</span>
+                  </label>
+                  <label class="filter-checkbox">
+                    <input type="checkbox" name="filterBrand" value="Yakult">
+                    <span class="check-box"></span>
+                    <span>Yakult</span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Khoảng giá -->
+              <div class="filter-section">
+                <h6 class="filter-section-title"><i class="fas fa-tag me-2 cat-icon-amber"></i>Khoảng Giá</h6>
+                <label class="filter-radio">
+                  <input type="radio" name="filterPrice" value="" checked>
+                  <span class="radio-circle"></span>
+                  <span>Tất cả</span>
+                </label>
+                <label class="filter-radio">
+                  <input type="radio" name="filterPrice" value="0-30000">
+                  <span class="radio-circle"></span>
+                  <span>Dưới 30.000đ</span>
+                </label>
+                <label class="filter-radio">
+                  <input type="radio" name="filterPrice" value="30000-100000">
+                  <span class="radio-circle"></span>
+                  <span>30.000đ – 100.000đ</span>
+                </label>
+                <label class="filter-radio">
+                  <input type="radio" name="filterPrice" value="100000-500000">
+                  <span class="radio-circle"></span>
+                  <span>100.000đ – 500.000đ</span>
+                </label>
+                <label class="filter-radio">
+                  <input type="radio" name="filterPrice" value="500000-999999999">
+                  <span class="radio-circle"></span>
+                  <span>Trên 500.000đ</span>
+                </label>
+              </div>
+
+              <!-- Xóa bộ lọc -->
+              <button class="btn btn-sm btn-outline-secondary w-100 mt-2" id="btnResetFilter">
+                <i class="fas fa-undo me-1"></i>Xóa bộ lọc
+              </button>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ===== NỘI DUNG CHÍNH ===== -->
+      <div class="col-lg-9">
+
+        <!-- Thanh tìm kiếm + sắp xếp -->
+        <div class="products-toolbar">
+          <div class="toolbar-left">
+            <div class="toolbar-search">
+              <i class="fas fa-search search-icon"></i>
+              <input type="text" class="toolbar-search-input" id="searchInput" placeholder="Tìm theo tên hoặc mô tả...">
+            </div>
+          </div>
+          <div class="toolbar-right">
+            <span class="text-muted me-3" id="productCount">0 sản phẩm</span>
+            <select class="toolbar-select" id="sortBy" title="Sắp xếp sản phẩm">
+              <option value="">Sắp xếp: Mặc định</option>
+              <option value="deadline-asc">Hạn SD (gần nhất)</option>
+              <option value="deadline-desc">Hạn SD (xa nhất)</option>
+              <option value="price-asc">Giá (thấp → cao)</option>
+              <option value="price-desc">Giá (cao → thấp)</option>
+              <option value="name-asc">Tên (A-Z)</option>
+            </select>
+            <div class="btn-group btn-group-sm ms-2">
+              <button class="btn btn-outline-secondary active" id="viewGrid" title="Dạng lưới">
+                <i class="fas fa-th-large"></i>
+              </button>
+              <button class="btn btn-outline-secondary" id="viewList" title="Dạng danh sách">
+                <i class="fas fa-list"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Nút thêm sản phẩm (admin) -->
+        <div class="mb-3 text-end" id="addProductWrapper">
+          <button class="btn btn-primary-milkshop" id="btnAddProduct">
+            <i class="fas fa-plus me-2"></i>Thêm sản phẩm
+          </button>
+        </div>
+
+        <div class="row g-4" id="productsContainer"></div>
+
+        <nav class="mt-4" id="paginationNav">
+          <ul class="pagination justify-content-center" id="pagination"></ul>
+        </nav>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Modal Th\u00eam/S\u1eeda s\u1ea3n ph\u1ea9m -->
+  <div class="modal fade" id="productModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalTitle">Thêm sản phẩm mới</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" title="Đóng"></button>
+        </div>
+        <div class="modal-body">
+          <form id="productForm" novalidate>
+            <input type="hidden" id="productId">
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label for="productName" class="form-label-milkshop">Tên sản phẩm *</label>
+                <input type="text" class="form-control-milkshop" id="productName" placeholder="Nhập tên sản phẩm" required>
+                <div class="invalid-feedback-milkshop" id="nameError">Tên sản phẩm không được để trống</div>
+              </div>
+              <div class="col-md-6">
+                <label for="productCategory" class="form-label-milkshop">Loại sữa *</label>
+                <select class="form-control-milkshop form-select" id="productCategory" required>
+                  <option value="">-- Chọn loại --</option>
+                  <option value="Sữa tươi">Sữa tươi</option>
+                  <option value="Sữa bột">Sữa bột</option>
+                  <option value="Sữa chua">Sữa chua</option>
+                  <option value="Sữa hạt">Sữa hạt</option>
+                </select>
+                <div class="invalid-feedback-milkshop" id="categoryError">Vui lòng chọn loại sữa</div>
+              </div>
+              <div class="col-12">
+                <label for="productDescription" class="form-label-milkshop">Mô tả *</label>
+                <textarea class="form-control-milkshop" id="productDescription" rows="3" placeholder="Mô tả sản phẩm (tối thiểu 10 ký tự)" required></textarea>
+                <div class="invalid-feedback-milkshop" id="descriptionError">Mô tả phải có tối thiểu 10 ký tự</div>
+              </div>
+              <div class="col-md-4">
+                <label for="productPrice" class="form-label-milkshop">Giá (VNĐ) *</label>
+                <input type="number" class="form-control-milkshop" id="productPrice" placeholder="0" min="1" required>
+                <div class="invalid-feedback-milkshop" id="priceError">Giá phải lớn hơn 0</div>
+              </div>
+              <div class="col-md-4">
+                <label for="productDeadline" class="form-label-milkshop">Hạn sử dụng *</label>
+                <input type="date" class="form-control-milkshop" id="productDeadline" required>
+                <div class="invalid-feedback-milkshop" id="deadlineError">Hạn sử dụng không được nhỏ hơn ngày hiện tại</div>
+              </div>
+              <div class="col-md-4">
+                <label for="productStatus" class="form-label-milkshop">Trạng thái</label>
+                <select class="form-control-milkshop form-select" id="productStatus">
+                  <option value="Còn hàng">Còn hàng</option>
+                  <option value="Hết hàng">Hết hàng</option>
+                </select>
+              </div>
+              <div class="col-12">
+                <label for="productImage" class="form-label-milkshop">Hình ảnh (URL)</label>
+                <input type="text" class="form-control-milkshop" id="productImage" placeholder="assets/img/ten_hinh.jpg">
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+          <button type="button" class="btn btn-primary-milkshop" id="btnSaveProduct">
+            <i class="fas fa-save me-2"></i>Lưu sản phẩm
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="assets/js/storage-service.js"></script>
+  <script src="assets/js/app-core.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/products.js"></script>
+</body>
+</html>

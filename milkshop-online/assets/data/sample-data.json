@@ -1,0 +1,338 @@
+{
+  "milkshop_products": [
+    {
+      "id": "p1",
+      "name": "Sữa tươi Vinamilk 100%",
+      "description": "Sữa tươi tiệt trùng Vinamilk 100% nguyên chất, giàu canxi và protein, tốt cho sức khỏe cả gia đình.",
+      "price": 32000,
+      "mfgDate": "2025-12-15",
+      "deadline": "2026-06-15",
+      "category": "Sữa tươi",
+      "status": "Còn hàng",
+      "image": "assets/img/sua-tuoi-vinamilk.jpg",
+      "stock": 50,
+      "discount": 30
+    },
+    {
+      "id": "p2",
+      "name": "Sữa tươi TH True Milk",
+      "description": "Sữa tươi sạch TH True Milk từ trang trại bò sữa công nghệ cao Israel, không chất bảo quản.",
+      "price": 35000,
+      "mfgDate": "2025-11-20",
+      "deadline": "2026-05-20",
+      "category": "Sữa tươi",
+      "status": "Còn hàng",
+      "image": "assets/img/th-true-milk.jpg",
+      "stock": 45,
+      "discount": 15
+    },
+    {
+      "id": "p3",
+      "name": "Sữa tươi Mộc Châu Milk",
+      "description": "Sữa tươi thanh trùng Mộc Châu Milk từ cao nguyên Mộc Châu, hương vị thơm ngon tự nhiên.",
+      "price": 30000,
+      "mfgDate": "2025-10-01",
+      "deadline": "2026-04-01",
+      "category": "Sữa tươi",
+      "status": "Hết hàng",
+      "image": "assets/img/mocchau.jpg",
+      "stock": 0,
+      "discount": 0
+    },
+    {
+      "id": "p4",
+      "name": "Sữa tươi Dalat Milk",
+      "description": "Sữa tươi tiệt trùng Dalat Milk từ vùng cao nguyên Lâm Đồng, vị ngọt nhẹ tự nhiên.",
+      "price": 28000,
+      "mfgDate": "2026-01-10",
+      "deadline": "2026-07-10",
+      "category": "Sữa tươi",
+      "status": "Còn hàng",
+      "image": "assets/img/dalatmilk.jpg",
+      "stock": 30,
+      "discount": 0
+    },
+    {
+      "id": "p5",
+      "name": "Sữa bột Ensure Gold",
+      "description": "Sữa bột Ensure Gold bổ sung dinh dưỡng đầy đủ cho người lớn tuổi, hỗ trợ hệ miễn dịch.",
+      "price": 850000,
+      "mfgDate": "2025-06-01",
+      "deadline": "2026-12-01",
+      "category": "Sữa bột",
+      "status": "Còn hàng",
+      "image": "assets/img/ensure-gold.jpg",
+      "stock": 25,
+      "discount": 10
+    },
+    {
+      "id": "p6",
+      "name": "Sữa bột Similac IQ 4",
+      "description": "Sữa bột Similac IQ số 4 dành cho trẻ từ 2-6 tuổi, bổ sung HMO và DHA giúp phát triển trí não.",
+      "price": 520000,
+      "mfgDate": "2025-09-30",
+      "deadline": "2026-09-30",
+      "category": "Sữa bột",
+      "status": "Còn hàng",
+      "image": "assets/img/similac.jpg",
+      "stock": 20,
+      "discount": 0
+    },
+    {
+      "id": "p7",
+      "name": "Sữa bột Dielac Grow Plus",
+      "description": "Sữa bột Dielac Grow Plus của Vinamilk dành cho trẻ từ 1-2 tuổi, hỗ trợ phát triển chiều cao vượt trội.",
+      "price": 380000,
+      "mfgDate": "2025-10-15",
+      "deadline": "2026-10-15",
+      "category": "Sữa bột",
+      "status": "Còn hàng",
+      "image": "assets/img/dielac.jpg",
+      "stock": 35,
+      "discount": 20
+    },
+    {
+      "id": "p8",
+      "name": "Sữa đặc Ông Thọ",
+      "description": "Sữa đặc có đường Ông Thọ nhãn trắng, thơm béo đậm đà, dùng pha cà phê và chế biến món ăn.",
+      "price": 22000,
+      "mfgDate": "2025-05-30",
+      "deadline": "2026-11-30",
+      "category": "Sữa bột",
+      "status": "Còn hàng",
+      "image": "assets/img/sua-dac-ong-tho.jpg",
+      "stock": 80,
+      "discount": 0
+    },
+    {
+      "id": "p9",
+      "name": "Sữa đặc Ngôi Sao Phương Nam",
+      "description": "Sữa đặc có đường Ngôi Sao Phương Nam, vị ngọt thanh, dùng pha chế đồ uống và nấu ăn.",
+      "price": 20000,
+      "mfgDate": "2025-10-20",
+      "deadline": "2026-10-20",
+      "category": "Sữa bột",
+      "status": "Còn hàng",
+      "image": "assets/img/sua-dac-ngoi-sao.jpg",
+      "stock": 60,
+      "discount": 0
+    },
+    {
+      "id": "p10",
+      "name": "Sữa chua TH True Yogurt",
+      "description": "Sữa chua ăn TH True Yogurt từ sữa tươi sạch, vị tự nhiên, giàu lợi khuẩn tốt cho hệ tiêu hóa.",
+      "price": 30000,
+      "mfgDate": "2026-02-15",
+      "deadline": "2026-04-15",
+      "category": "Sữa chua",
+      "status": "Còn hàng",
+      "image": "assets/img/th-yogurt.jpg",
+      "stock": 40,
+      "discount": 0
+    },
+    {
+      "id": "p11",
+      "name": "Sữa chua uống Yakult",
+      "description": "Sữa chua uống Yakult chứa hàng tỷ lợi khuẩn L.Casei Shirota, tăng cường sức đề kháng.",
+      "price": 25000,
+      "mfgDate": "2026-03-05",
+      "deadline": "2026-04-05",
+      "category": "Sữa chua",
+      "status": "Còn hàng",
+      "image": "assets/img/yakult.jpg",
+      "stock": 100,
+      "discount": 10
+    },
+    {
+      "id": "p12",
+      "name": "Sữa chua uống Probi",
+      "description": "Sữa chua uống men sống Probi của Vinamilk, bổ sung lợi khuẩn Probiotics, hỗ trợ tiêu hóa khỏe.",
+      "price": 28000,
+      "mfgDate": "2026-02-20",
+      "deadline": "2026-04-20",
+      "category": "Sữa chua",
+      "status": "Còn hàng",
+      "image": "assets/img/sua-chua-probi.jpg",
+      "stock": 55,
+      "discount": 0
+    },
+    {
+      "id": "p13",
+      "name": "Sữa hạt óc chó TH True Nut",
+      "description": "Sữa hạt óc chó TH True Nut giàu omega-3, vitamin E, tốt cho não bộ và tim mạch.",
+      "price": 39000,
+      "mfgDate": "2026-01-20",
+      "deadline": "2026-07-20",
+      "category": "Sữa hạt",
+      "status": "Còn hàng",
+      "image": "assets/img/sua-hat-oc-cho.jpg",
+      "stock": 3,
+      "discount": 20
+    },
+    {
+      "id": "p14",
+      "name": "Sữa hạt hạnh nhân Vinamilk",
+      "description": "Sữa hạt hạnh nhân Vinamilk Super Nut không đường, giàu vitamin E, ít calo, phù hợp cho người ăn kiêng.",
+      "price": 38000,
+      "mfgDate": "2026-02-15",
+      "deadline": "2026-08-15",
+      "category": "Sữa hạt",
+      "status": "Còn hàng",
+      "image": "assets/img/sua-hat-hanh-nhan.jpg",
+      "stock": 8,
+      "discount": 0
+    },
+    {
+      "id": "p15",
+      "name": "Sữa 9 loại hạt Vinamilk",
+      "description": "Sữa 9 loại hạt Vinamilk Super Nut bổ sung dinh dưỡng từ hạt óc chó, hạnh nhân, macca, ít đường.",
+      "price": 42000,
+      "mfgDate": "2026-03-10",
+      "deadline": "2026-09-10",
+      "category": "Sữa hạt",
+      "status": "Còn hàng",
+      "image": "assets/img/sua-9-loai-hat.jpg",
+      "stock": 15,
+      "discount": 25
+    }
+  ],
+  "milkshop_orders": [
+    {
+      "id": "ORD1001",
+      "date": "2026-03-18T03:00:00.000Z",
+      "status": "Đã giao",
+      "items": [
+        { "productId": "p1", "name": "Sữa tươi Vinamilk 100%", "price": 22400, "originalPrice": 32000, "discount": 30, "quantity": 3, "subtotal": 67200 },
+        { "productId": "p5", "name": "Sữa bột Ensure Gold", "price": 765000, "originalPrice": 850000, "discount": 10, "quantity": 1, "subtotal": 765000 }
+      ],
+      "subtotal": 832200,
+      "vatAmount": 66576,
+      "total": 898776
+    },
+    {
+      "id": "ORD1002",
+      "date": "2026-03-21T03:00:00.000Z",
+      "status": "Đã giao",
+      "items": [
+        { "productId": "p11", "name": "Sữa chua uống Yakult", "price": 22500, "originalPrice": 25000, "discount": 10, "quantity": 4, "subtotal": 90000 },
+        { "productId": "p10", "name": "Sữa chua TH True Yogurt", "price": 30000, "originalPrice": 30000, "discount": 0, "quantity": 2, "subtotal": 60000 }
+      ],
+      "subtotal": 150000,
+      "vatAmount": 12000,
+      "total": 162000
+    },
+    {
+      "id": "ORD1003",
+      "date": "2026-03-24T03:00:00.000Z",
+      "status": "Đã giao",
+      "items": [
+        { "productId": "p7", "name": "Sữa bột Dielac Grow Plus", "price": 304000, "originalPrice": 380000, "discount": 20, "quantity": 1, "subtotal": 304000 },
+        { "productId": "p2", "name": "Sữa tươi TH True Milk", "price": 29750, "originalPrice": 35000, "discount": 15, "quantity": 2, "subtotal": 59500 }
+      ],
+      "subtotal": 363500,
+      "vatAmount": 29080,
+      "total": 392580,
+      "couponCode": "CHAO2026",
+      "discount": 39258
+    },
+    {
+      "id": "ORD1004",
+      "date": "2026-03-26T03:00:00.000Z",
+      "status": "Đang giao",
+      "items": [
+        { "productId": "p13", "name": "Sữa hạt óc chó TH True Nut", "price": 31200, "originalPrice": 39000, "discount": 20, "quantity": 2, "subtotal": 62400 },
+        { "productId": "p15", "name": "Sữa 9 loại hạt Vinamilk", "price": 31500, "originalPrice": 42000, "discount": 25, "quantity": 1, "subtotal": 31500 },
+        { "productId": "p4", "name": "Sữa tươi Dalat Milk", "price": 28000, "originalPrice": 28000, "discount": 0, "quantity": 3, "subtotal": 84000 }
+      ],
+      "subtotal": 177900,
+      "vatAmount": 14232,
+      "total": 192132
+    },
+    {
+      "id": "ORD1005",
+      "date": "2026-03-29T03:00:00.000Z",
+      "status": "Đang giao",
+      "items": [
+        { "productId": "p6", "name": "Sữa bột Similac IQ 4", "price": 520000, "originalPrice": 520000, "discount": 0, "quantity": 1, "subtotal": 520000 },
+        { "productId": "p8", "name": "Sữa đặc Ông Thọ", "price": 22000, "originalPrice": 22000, "discount": 0, "quantity": 5, "subtotal": 110000 }
+      ],
+      "subtotal": 630000,
+      "vatAmount": 50400,
+      "total": 680400,
+      "couponCode": "GIAM30K",
+      "discount": 30000
+    },
+    {
+      "id": "ORD1006",
+      "date": "2026-03-30T03:00:00.000Z",
+      "status": "Đã đặt",
+      "items": [
+        { "productId": "p14", "name": "Sữa hạt hạnh nhân Vinamilk", "price": 38000, "originalPrice": 38000, "discount": 0, "quantity": 2, "subtotal": 76000 },
+        { "productId": "p12", "name": "Sữa chua uống Probi", "price": 28000, "originalPrice": 28000, "discount": 0, "quantity": 3, "subtotal": 84000 },
+        { "productId": "p9", "name": "Sữa đặc Ngôi Sao Phương Nam", "price": 20000, "originalPrice": 20000, "discount": 0, "quantity": 2, "subtotal": 40000 }
+      ],
+      "subtotal": 200000,
+      "vatAmount": 16000,
+      "total": 216000
+    }
+  ],
+  "milkshop_coupons": [
+    {
+      "id": "cpn1",
+      "code": "CHAO2026",
+      "type": "percent",
+      "value": 10,
+      "maxDiscount": 50000,
+      "minOrderValue": 100000,
+      "usageLimit": 50,
+      "usageCount": 0,
+      "expiryDate": "2026-06-30",
+      "isActive": true,
+      "description": "Giảm 10% tối đa 50k cho đơn từ 100k"
+    },
+    {
+      "id": "cpn2",
+      "code": "GIAM30K",
+      "type": "fixed",
+      "value": 30000,
+      "maxDiscount": 30000,
+      "minOrderValue": 200000,
+      "usageLimit": 30,
+      "usageCount": 0,
+      "expiryDate": "2026-05-31",
+      "isActive": true,
+      "description": "Giảm 30.000đ cho đơn từ 200k"
+    },
+    {
+      "id": "cpn3",
+      "code": "SUABIM",
+      "type": "percent",
+      "value": 15,
+      "maxDiscount": 80000,
+      "minOrderValue": 150000,
+      "usageLimit": 20,
+      "usageCount": 0,
+      "expiryDate": "2026-04-30",
+      "isActive": true,
+      "description": "Giảm 15% tối đa 80k cho đơn từ 150k"
+    }
+  ],
+  "milkshop_ratings": {
+    "p1":  [5, 4, 5, 4, 5, 5, 4, 5, 5, 4, 5, 3],
+    "p2":  [4, 5, 4, 4, 5, 4, 5, 3, 4, 5],
+    "p3":  [3, 4, 3, 2, 4, 3],
+    "p4":  [4, 5, 4, 4, 3, 5, 4],
+    "p5":  [5, 5, 4, 5, 5, 4, 5, 5, 4, 5, 4, 5, 5],
+    "p6":  [4, 3, 4, 5, 4, 5, 4, 3, 4],
+    "p7":  [5, 4, 5, 5, 4, 4, 5, 5],
+    "p8":  [4, 5, 5, 4, 5, 4, 3, 4, 5, 4, 5],
+    "p9":  [3, 4, 4, 3, 5, 4, 4],
+    "p10": [5, 4, 5, 4, 5, 5, 4],
+    "p11": [5, 5, 4, 5, 4, 5, 5, 4, 5, 5, 4, 5, 5, 4],
+    "p12": [4, 4, 3, 5, 4, 4, 5, 3],
+    "p13": [4, 5, 4, 5, 5, 4, 5],
+    "p14": [3, 4, 4, 5, 4, 3],
+    "p15": [5, 4, 5, 5, 4, 5, 4, 5, 5]
+  },
+  "milkshop_cart": []
+}

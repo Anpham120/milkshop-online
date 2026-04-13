@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Đăng ký — MilkShop</title>
+  <meta name="description" content="Đăng ký tài khoản MilkShop Online">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="assets/css/common.css" rel="stylesheet">
+  <link href="assets/css/auth.css" rel="stylesheet">
+</head>
+<body>
+
+  <div id="navbar-placeholder"></div>
+
+  <main class="auth-main">
+    <div class="container">
+      <div class="auth-wrapper">
+        <!-- Cột trái: Ảnh hero-banner -->
+        <div class="auth-banner">
+          <img src="assets/img/hero-banner-2.png" alt="MilkShop Banner" class="auth-banner-img">
+          <div class="auth-banner-overlay"></div>
+          <div class="auth-banner-content">
+            <img src="assets/img/logo-milkshop.png" alt="MilkShop" class="auth-banner-logo">
+            <h2>Chào Mừng!</h2>
+            <p>Tham gia cộng đồng MilkShop để trải nghiệm mua sắm sữa tiện lợi nhất</p>
+          </div>
+        </div>
+
+        <!-- Cột phải: Form đăng ký -->
+        <div class="auth-form-panel">
+          <div class="auth-form-inner">
+            <div class="auth-form-header">
+              <h1>Đăng Ký Tài Khoản</h1>
+              <p>Tạo tài khoản để bắt đầu mua sắm</p>
+            </div>
+
+            <form id="registerForm" novalidate>
+              <div class="auth-field">
+                <label for="regFullName" class="auth-label">Họ và Tên</label>
+                <div class="auth-input-wrap">
+                  <i class="fas fa-user"></i>
+                  <input type="text" class="auth-input" id="regFullName" placeholder="Nhập họ và tên" required>
+                </div>
+                <div class="auth-error" id="fullNameError">Vui lòng nhập họ và tên</div>
+              </div>
+
+              <div class="auth-field">
+                <label for="regUsername" class="auth-label">Tên đăng nhập</label>
+                <div class="auth-input-wrap">
+                  <i class="fas fa-at"></i>
+                  <input type="text" class="auth-input" id="regUsername" placeholder="Nhập tên đăng nhập" required>
+                </div>
+                <div class="auth-error" id="regUsernameError">Vui lòng nhập tên đăng nhập</div>
+              </div>
+
+              <div class="auth-field">
+                <label for="regPhone" class="auth-label">Số điện thoại</label>
+                <div class="auth-input-wrap">
+                  <i class="fas fa-phone"></i>
+                  <input type="tel" class="auth-input" id="regPhone" placeholder="Nhập số điện thoại" required>
+                </div>
+                <div class="auth-error" id="phoneError">Vui lòng nhập số điện thoại hợp lệ</div>
+              </div>
+
+              <div class="auth-field">
+                <label for="regPassword" class="auth-label">Mật khẩu</label>
+                <div class="auth-input-wrap">
+                  <i class="fas fa-lock"></i>
+                  <input type="password" class="auth-input" id="regPassword" placeholder="Nhập mật khẩu (tối thiểu 6 ký tự)" required>
+                  <button type="button" class="auth-toggle-pw" data-target="regPassword" title="Hiện/ẩn mật khẩu">
+                    <i class="fas fa-eye"></i>
+                  </button>
+                </div>
+                <div class="auth-error" id="regPasswordError">Mật khẩu tối thiểu 6 ký tự</div>
+              </div>
+
+              <div class="auth-field">
+                <label for="regConfirmPassword" class="auth-label">Xác nhận mật khẩu</label>
+                <div class="auth-input-wrap">
+                  <i class="fas fa-lock"></i>
+                  <input type="password" class="auth-input" id="regConfirmPassword" placeholder="Nhập lại mật khẩu" required>
+                  <button type="button" class="auth-toggle-pw" data-target="regConfirmPassword" title="Hiện/ẩn mật khẩu">
+                    <i class="fas fa-eye"></i>
+                  </button>
+                </div>
+                <div class="auth-error" id="confirmPasswordError">Mật khẩu xác nhận không khớp</div>
+              </div>
+
+              <div class="form-check mb-4">
+                <input class="form-check-input" type="checkbox" id="agreeTerms" required>
+                <label class="form-check-label auth-remember" for="agreeTerms">
+                  Tôi đồng ý với <a href="#" class="auth-link">Điều khoản dịch vụ</a> và <a href="#" class="auth-link">Chính sách bảo mật</a>
+                </label>
+              </div>
+
+              <button type="submit" class="auth-submit-btn" id="btnRegister">
+                <i class="fas fa-user-plus me-2"></i>Tạo Tài Khoản
+              </button>
+            </form>
+
+            <div class="auth-divider">
+              <span>hoặc</span>
+            </div>
+
+            <div class="auth-social-btns">
+              <button type="button" class="auth-social-btn auth-social-fb">
+                <i class="fab fa-facebook-f"></i> Facebook
+              </button>
+              <button type="button" class="auth-social-btn auth-social-gg">
+                <svg class="google-icon" viewBox="0 0 24 24" width="18" height="18"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.27-4.74 3.27-8.1z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg> Google
+              </button>
+            </div>
+
+            <div class="auth-footer-link">
+              <span>Đã có tài khoản?</span>
+              <a href="login.html">Đăng nhập</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div id="footer-placeholder"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="assets/js/storage-service.js"></script>
+  <script src="assets/js/app-core.js"></script>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/register.js"></script>
+</body>
+</html>
