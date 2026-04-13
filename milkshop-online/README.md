@@ -1,218 +1,126 @@
-# 🥛 MilkShop Online
-
-> Website quản lý & bán sữa trực tuyến — Đồ án cuối kỳ môn **Cơ sở Lập trình Web**  
-> Trường Đại học CMC — Khoa CNTT&TT — Nhóm 1
+<div align="center">
+  <img src="assets/img/logo-milkshop.png" alt="MilkShop Logo" width="120" />
+  <h1>🥛 MilkShop Online</h1>
+  <p><i>Hệ thống Quản lý và Bán Sữa Trực tuyến Đa nền tảng</i></p>
+  <p>
+    <b>Đồ án cuối kỳ môn Cơ sở Lập trình Web</b><br>
+    Trường Đại học CMC — Khoa CNTT&TT — Nhóm 1
+  </p>
+</div>
 
 ---
 
 ## 📋 Giới thiệu
 
-MilkShop Online là hệ thống website bán sữa trực tuyến với đầy đủ chức năng cho **hai vai trò** (Admin & Khách hàng). Website được phát triển hoàn toàn bằng công nghệ front-end, lưu trữ dữ liệu bằng LocalStorage — không cần backend hay database server.
+**MilkShop Online** là một hệ thống website thương mại điện tử chuyên cung cấp các sản phẩm sữa, được phát triển với cấu trúc 4 tầng chuẩn mực. Điểm đặc biệt của dự án là được xây dựng hoàn toàn bằng **Vanilla JavaScript (ES6+)**, LocalStorage API và CSS thuần, không phụ thuộc vào bất kỳ hạ tầng Backend/Database Server nào, khẳng định khả năng làm chủ công nghệ Frontend cốt lõi.
 
-### Điểm nổi bật
-
-- 🔐 **Phân quyền Admin / Khách hàng** — Giao diện và chức năng riêng biệt
-- 🛒 **Quy trình mua hàng hoàn chỉnh** — Duyệt sản phẩm → Giỏ hàng → Mã giảm giá → Đặt hàng
-- 📊 **Dashboard Admin chuyên nghiệp** — Quản lý sản phẩm, đơn hàng, coupon, thống kê
-- 🌙 **Dark Mode** — Hỗ trợ giao diện sáng/tối trên toàn bộ website
-- 📱 **Responsive** — Tương thích Mobile / Tablet / Desktop
+Dự án cung cấp 2 phân hệ hoàn chỉnh:
+- **Khách hàng (Front-office):** Duyệt sản phẩm, tìm kiếm realtime, giỏ hàng, đặt hàng, mã giảm giá, wishlist.
+- **Quản trị viên (Back-office):** Bảng điều khiển (Dashboard), quản lý sản phẩm (CRUD), quản lý đơn hàng, mã giảm giá và thống kê biểu đồ.
 
 ---
 
-## 🛠️ Công nghệ sử dụng
+## 🌟 Tính năng nổi bật
 
-| Công nghệ | Phiên bản | Mục đích |
-|-----------|-----------|----------|
-| HTML5 | — | Cấu trúc trang |
-| CSS3 (Custom Properties) | — | Giao diện, Dark Mode, biến CSS toàn cục |
-| JavaScript ES6+ | — | Logic xử lý, DOM manipulation |
-| jQuery | 3.7.1 | Xử lý DOM, events |
-| Bootstrap | 5.3.3 | Responsive layout, modal, dropdown |
-| Font Awesome | 6.5.1 | Icon hệ thống |
-| Google Fonts (Inter) | 300–900 | Typography hiện đại |
-| Chart.js | 4.4.1 | Biểu đồ thống kê (Bar, Doughnut) |
-| SweetAlert2 | 11 | Thông báo & xác nhận đẹp |
-| LocalStorage API | — | Lưu trữ dữ liệu client-side |
+- 🔐 **Phân quyền Bảo mật (Role-based Control)** — Hệ thống Auth Guard điều hướng và ngăn chặn truy cập trái phép. Giao diện thay đổi động theo Session.
+- 🛒 **Quy trình Thanh toán Tiêu chuẩn** — Xử lý đồng bộ Giỏ hàng (Cart) → Mã giảm giá (Coupon) → Đặt hàng với validate chặt chẽ.
+- 🌙 **Giao diện Light / Dark Mode** — Trải nghiệm mượt mà với biến CSS Custom Properties (Lưu trạng thái bằng LocalStorage).
+- 📱 **Thiết kế Chuẩn Responsive** — Hiển thị hoàn hảo trên mọi kích thước màn hình (Mobile, Tablet, Desktop).
+- ⚡ **Tối ưu Hiệu suất** — Kỹ thuật Debounce cho ô tìm kiếm, cơ chế Auto-seed mồi dữ liệu, và quản lý State độc lập qua IIFE Module.
 
 ---
 
-## 📂 Cấu trúc dự án
+## 🛠️ Công nghệ & Kỹ thuật áp dụng
 
-```
+| Lớp (Layer) | Công nghệ / Kỹ thuật | Phân tích Thêm |
+| --- | --- | --- |
+| **Cấu trúc (Structure)** | HTML5, Semantic UI | Tối ưu SEO cơ bản, chuẩn W3C |
+| **Giao diện (Styling)** | CSS3, Bootstrap 5.3, Font Awesome 6 | CSS Variables (Theming), Flexbox/Grid |
+| **Tương tác (Logic)** | Vanilla JS (ES6+), jQuery 3.7.1 | Event Delegation, DOM Manipulation |
+| **Lưu trữ (Data Access)**| Window.LocalStorage API | Giả lập cơ sở dữ liệu phi quan hệ |
+| **Thư viện Hỗ trợ** | Chart.js 4.4, SweetAlert2 11 | Trực quan hóa dữ liệu, Toast Notification |
+
+---
+
+## 📂 Kiến trúc Dự án (Folder Structure)
+
+```text
 milkshop-online/
-│
-├── index.html                  # Trang chủ (Hero Carousel, Flash Sale, Sản phẩm nổi bật)
-├── products.html               # Danh sách sản phẩm (Filter, Sort, Pagination)
-├── product-detail.html         # Chi tiết sản phẩm (Rating, Related Products)
-├── cart.html                   # Giỏ hàng & Đặt hàng (Coupon)
-├── about.html                  # Giới thiệu cửa hàng
-├── contact.html                # Liên hệ (Form + Google Maps)
-├── login.html                  # Đăng nhập
-├── register.html               # Đăng ký tài khoản
-│
-├── admin/                      # ── KÊNH QUẢN TRỊ ──
+├── admin/                      # ── KÊNH QUẢN TRỊ (Back-office) ──
 │   ├── index.html              # Dashboard (Thống kê tổng quan)
-│   ├── products.html           # Quản lý sản phẩm (CRUD)
-│   ├── orders.html             # Quản lý đơn hàng
-│   ├── coupons.html            # Quản lý mã giảm giá
-│   └── statistics.html         # Thống kê & Biểu đồ & Lịch HSD
+│   ├── products.html           # Quản lý Sản phẩm (Danh sách & CRUD)
+│   ├── orders.html             # Theo dõi Đơn hàng
+│   └── coupons.html            # Hệ thống Mã giảm giá
 │
-└── assets/
-    ├── css/                    # ── 10 FILE CSS ──
-    │   ├── common.css          # Style gốc: navbar, footer, dark mode, :root variables
-    │   ├── home.css            # Trang chủ: hero slider, flash sale, featured
-    │   ├── products.css        # Danh sách SP: filter sidebar, card, badges
-    │   ├── product-detail.css  # Chi tiết SP: gallery, trust badges
-    │   ├── cart.css            # Giỏ hàng: coupon, summary
-    │   ├── about.css           # Giới thiệu: timeline, team cards
-    │   ├── contact.css         # Liên hệ: form, map, info cards
-    │   ├── auth.css            # Đăng ký: form styling
-    │   ├── login.css           # Đăng nhập: split layout
-    │   ├── admin.css           # Admin: sidebar, topbar, dashboard, tables
-    │   └── statistics.css      # Thống kê: charts, calendar, deadline list
-    │
-    ├── js/                     # ── 16 FILE JS ──
-    │   │
-    │   │  ── Core Layer ──
-    │   ├── storageService.js   # IIFE — CRUD LocalStorage, cart, orders, coupons, export/import
-    │   ├── shared.js           # Auth guard, formatPrice, debounce, SweetAlert2 wrappers
-    │   ├── main.js             # Navbar, footer, cart badge, wishlist, scroll-to-top
-    │   │
-    │   │  ── Customer Pages ──
-    │   ├── home.js             # Hero carousel, flash sale, featured/bestseller/new arrivals
-    │   ├── products.js         # Filter/sort/pagination, dual-range price, brand filter
-    │   ├── product-detail.js   # Detail render, qty control, related products
-    │   ├── cart.js             # Cart CRUD, coupon apply/validate, cross-tab sync
-    │   ├── contact.js          # Contact form validation & localStorage save
-    │   ├── login.js            # Login authentication + redirect
-    │   ├── register.js         # Registration with full validation
-    │   │
-    │   │  ── Admin Pages ──
-    │   ├── admin.js            # Sidebar, topbar, auth guard (admin only)
-    │   ├── admin-dashboard.js  # Stats cards, expiring products, recent orders
-    │   ├── admin-products.js   # Product CRUD table + advanced validation
-    │   ├── admin-orders.js     # Order management + search
-    │   ├── admin-coupons.js    # Coupon CRUD + toggle status
-    │   └── statistics.js       # Chart.js charts, deadline list, calendar view
-    │
-    └── img/                    # ── HÌNH ẢNH ──
-        ├── logo-milkshop.png   # Logo website
-        ├── hero-banner-*.png   # Banner trang chủ
-        ├── no-image.svg        # Placeholder ảnh lỗi
-        ├── *.jpg               # Ảnh sản phẩm sữa
-        └── *.png               # Icon social, payment methods
+├── assets/
+│   ├── css/                    # ── STYLESHEETS ──
+│   │   ├── common.css          # Core CSS: Theme, Navbar, Footer, Typography
+│   │   ├── admin.css           # Layout riêng biệt rành cho Admin
+│   │   └── *.css               # Các tệp CSS module hóa (home, cart, products)
+│   │
+│   ├── js/                     # ── JAVASCRIPT LOGIC ──
+│   │   ├── storage-service.js  # Tầng Dữ liệu: IIFE Pattern, CRUD LocalStorage
+│   │   ├── app-core.js         # Tầng Chia sẻ: Auth, getSession, Debounce, Format
+│   │   ├── main.js             # Controller chính cho Client (Điều hướng, Auth Guard)
+│   │   └── *.js                # Từng script chịu trách nhiệm cho các trang
+│   │
+│   ├── img/                    # Hình ảnh sản phẩm, Logo, Banner
+│   └── data/                   # sample-data.json (Dữ liệu gốc để Auto-seed)
+│
+├── index.html                  # ── KÊNH KHÁCH HÀNG (Front-office) ──
+├── products.html               # Cửa hàng (Phân trang, Lọc giá, Tìm kiếm)
+├── product-detail.html         # Trưng bày sản phẩm & Chức năng Mua ngay
+├── cart.html                   # Kiểm tra Giỏ hàng & Thanh toán
+├── about.html                  # Giới thiệu MilkShop
+├── contact.html                # Form liên hệ & Bản đồ
+└── login.html / register.html  # Khu vực Xác thực
 ```
 
----
-
-## ⚡ Chức năng chính
-
-### 🛍️ Khách hàng
-
-| Chức năng | Mô tả |
-|-----------|-------|
-| **Duyệt sản phẩm** | Grid view, filter theo danh mục / giá / nhãn hàng / trạng thái |
-| **Tìm kiếm** | Realtime search với debounce 300ms |
-| **Flash Sale** | Countdown timer, giảm giá ngẫu nhiên mỗi ngày |
-| **Chi tiết sản phẩm** | Ảnh lớn, rating, trust badges, sản phẩm liên quan |
-| **Giỏ hàng** | Thêm/xóa/cập nhật số lượng, áp dụng mã giảm giá |
-| **Mã giảm giá** | Nhập mã hoặc click chip gợi ý, validate tự động |
-| **Đặt hàng** | Xác nhận đặt hàng với SweetAlert2 |
-| **Wishlist** | Yêu thích sản phẩm (lưu localStorage) |
-| **Đăng ký / Đăng nhập** | Form validation đầy đủ, phân quyền |
-
-### 🔧 Admin Panel
-
-| Chức năng | Mô tả |
-|-----------|-------|
-| **Dashboard** | Tổng quan: tổng SP, còn/hết hàng, đơn hàng, doanh thu |
-| **Quản lý sản phẩm** | CRUD đầy đủ, validation NSX/HSD, trùng tên, phân trang |
-| **Quản lý đơn hàng** | Xem, tìm kiếm, xóa đơn hàng |
-| **Quản lý mã giảm giá** | CRUD coupon (% / cố định), bật/tắt, theo dõi lượt dùng |
-| **Thống kê** | Biểu đồ Chart.js (sản phẩm/danh mục, trạng thái, giá TB) |
-| **Lịch HSD** | Calendar view hiển thị sản phẩm sắp hết hạn |
-| **Export / Import** | Xuất/nhập dữ liệu JSON |
+*🔖 **Code Quality:** Toàn bộ mã nguồn cốt lõi (Core & Storage) đều được dọn dẹp (Clean Code), định dạng nhất quán và viết mô tả bằng **JSDoc** chuyên nghiệp.*
 
 ---
 
-## 🎁 Tính năng nâng cao (Bonus)
+## 🚀 Hướng dẫn Cài đặt & Trải nghiệm
 
-- 🌙 **Dark Mode / Light Mode** — Toggle trên navbar, áp dụng toàn bộ website + admin
-- 📊 **Biểu đồ thống kê** — Chart.js (cột, tròn, giá trung bình theo danh mục)
-- 📅 **Lịch hạn sử dụng** — Calendar view với color-coded events
-- ⚡ **Flash Sale** — Countdown timer, random discount mỗi ngày
-- ❤️ **Wishlist** — Yêu thích sản phẩm (localStorage)
-- 🎫 **Mã giảm giá (Coupon)** — Hỗ trợ % và cố định, validate đơn tối thiểu
-- 🔐 **Phân quyền** — Admin Panel riêng biệt, auth guard
-- 📝 **Đăng ký tài khoản** — Validation phone VN, trùng username, terms
-- 🖱️ **Drag & Drop** — Kéo thả đổi trạng thái sản phẩm
-- 📤 **Export / Import JSON** — Sao lưu & khôi phục toàn bộ dữ liệu
-- 📱 **Responsive** — Mobile / Tablet / Desktop
-- 🔀 **Grid / List view** — Chuyển đổi chế độ xem sản phẩm
-- 🔝 **Scroll to Top** — Nút cuộn lên đầu trang
-- 🔔 **Toast Notifications** — Thông báo nhẹ không reload
-- 🗺️ **Google Maps** — Bản đồ vị trí cửa hàng trang Liên hệ
-- 🔄 **Cross-tab Sync** — Giỏ hàng & coupon đồng bộ giữa các tab
+Hệ thống hoạt động hoàn toàn ở phía Client, không cần cài đặt thư viện Node.js hay Database.
 
----
-
-## 🚀 Cách chạy
-
-1. **Clone repo:**
+1. **Clone mã nguồn:**
    ```bash
    git clone https://github.com/Anpham120/milkshop-online.git
    cd milkshop-online
    ```
+2. **Chạy ứng dụng:** Mở tệp `index.html` bằng trình duyệt web. (Khuyến khích sử dụng **Live Server** trên VS Code để trải nghiệm tốt nhất).
 
-2. **Mở `index.html`** bằng trình duyệt (hoặc dùng **Live Server** trong VS Code)
+### 🔑 Các tài khoản Demo đã được Auto-seed:
+Website sẽ tự khởi tạo dữ liệu mẫu nếu chưa có. 
 
-3. **Tài khoản demo:**
+| Phân quyền | Tên đăng nhập | Mật khẩu | Quyền hạn nổi bật |
+| :--- | :--- | :--- | :--- |
+| **Admin** | `admin` | `123456` | Toàn quyền thao tác CRUD, xem biểu đồ doanh thu. |
+| **Khách hàng** | `khach` | `123456` | Thêm vào Hàng Yêu thích, Đặt hàng, Dùng mã giảm giá. |
 
-   | Vai trò | Username | Password | Quyền |
-   |---------|----------|----------|-------|
-   | Admin | `admin` | `123456` | CRUD sản phẩm, đơn hàng, coupon, thống kê |
-   | Khách hàng | `khach` | `123456` | Xem SP, mua hàng, giỏ hàng, wishlist |
-
-4. **Hoặc tự đăng ký** tài khoản mới tại trang `register.html`
-
----
-
-## 🏗️ Kiến trúc hệ thống
-
-```
-┌─────────────────────────────────────────────────────┐
-│                    BROWSER                          │
-├────────────────────┬────────────────────────────────┤
-│   Customer Pages   │         Admin Pages            │
-│ (index, products,  │ (dashboard, products, orders,  │
-│  cart, contact...) │  coupons, statistics)           │
-├────────────────────┴────────────────────────────────┤
-│              shared.js + main.js                    │
-│        (Auth, Utils, Navbar, Footer, Dark Mode)     │
-├─────────────────────────────────────────────────────┤
-│              storageService.js (IIFE)               │
-│   (CRUD Products, Cart, Orders, Coupons, Stats)     │
-├─────────────────────────────────────────────────────┤
-│                  LocalStorage                       │
-│  milkshop_products | milkshop_cart | milkshop_orders│
-│  milkshop_coupons  | milkshop_session | ...         │
-└─────────────────────────────────────────────────────┘
-```
+*(Hoặc bạn có thể trải nghiệm trực tiếp luồng **Đăng ký tài khoản mới**)*
 
 ---
 
-## 👥 Thành viên nhóm
+## 🏆 Đóng góp Kỹ thuật Nâng cao
 
-| STT | Họ tên | MSSV | Phụ trách |
-|-----|--------|------|-----------|
-| 1 | Phạm Duy An (Nhóm trưởng) | BIT240002 | Trang chủ, Flash Sale, Wishlist, Sản phẩm nổi bật |
-| 2 | Bùi Đào Đức Anh | BIT240025 | CRUD sản phẩm, StorageService, Filter/Sort, Chi tiết SP |
-| 3 | Đỗ Tuấn Anh | BIT240015 | Giỏ hàng, Đặt hàng, Đăng nhập/Đăng ký, Phân quyền |
-| 4 | Nguyễn Quang Hiếu | BIT240091 | Layout chung, Navbar, Footer, Dark Mode, Responsive, Giới thiệu |
-| 5 | Phan Văn Hiếu | BIT240094 | Thống kê, Biểu đồ Chart.js, Lịch hạn sử dụng, Liên hệ |
+- **Auto-seed Pattern:** Tự động tiêm (inject) 15 sản phẩm, 6 đơn hàng mẫu và thiết lập dữ liệu mặc định vào LocalStorage ngay trong lần truy cập đầu tiên.
+- **Biểu đồ Thống kê (Chart.js):** Dashboard tổng hợp doanh số qua các loại biểu đồ trực quan (Doughnut, Bar Chart).
+- **Validation Form Toàn diện:** Kiểm tra tính hợp lệ của Số điện thoại, Email, Số lượng tồn kho, Ngày sản xuất/Hạn sử dụng khi thêm sản phẩm bằng Regex và Logic chặt chẽ.
+- **Debouncing:** Kỹ thuật triệt tiêu Request rác khi gõ phím nhanh rên thanh tìm kiếm sản phẩm.
 
 ---
 
-## 📄 Giấy phép
+## 👥 Danh sách Thành viên 
 
-Đồ án cuối kỳ — Trường Đại học CMC — Khoa CNTT&TT — 2026
+| STT | Họ và Tên | Mã Sinh Viên | Vai trò & Phụ trách |
+| :---: | :--- | :---: | :--- |
+| 1 | **Phạm Duy An** *(Lead)* | `BIT240002` | Quản lý dự án, Trang chủ, Flash Sale, Wishlist, SP Nổi Bật |
+| 2 | **Bùi Đào Đức Anh** | `BIT240025` | Tầng Dữ liệu, Core Utilities, Chức năng Filter/Sort, Chi tiết |
+| 3 | **Đỗ Tuấn Anh** | `BIT240015` | Giỏ hàng, Đặt hàng, Authentication & Authorization |
+| 4 | **Nguyễn Quang Hiếu** | `BIT240091` | Layout & UI/UX, Dark/Light Mode, Responsive, Base CSS |
+| 5 | **Phan Văn Hiếu** | `BIT240094` | Cấu hình Thống kê Chart.js, Báo cáo Doanh thu, Trang Liên hệ |
+
+---
+**Giấy phép (License):** Mã nguồn thuộc về Dự án Học tập — Trường Đại học CMC — Khoa CNTT&TT — Đồ án Cơ sở Lập trình Web. Phát hành năm 2026.
